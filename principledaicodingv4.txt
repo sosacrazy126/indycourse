@@ -1,0 +1,644 @@
+Welcome to Lesson 8 of Principled AI Coding, your final lesson. First off,
+congratulations. Making it this far says a lot about your commitment, your capabilities,
+and your drive to succeed. The ideas we've explored in this course aren't simple. They challenge
+traditional software engineering principles where the focus was on the how. Understanding the details
+of the machine was the way to win. That approach worked for a long time, but as you know,
+the game has changed. In the generative AI age, success hinges on mastering what needs to be done,
+and then we package it and hand over as much as possible to our AI tools. It's not an easy transition
+especially when you're already great at what you do, but by making it here you've proven you're
+ready to embrace the future of engineering. A lot of engineers will push back against AI coding,
+they'll push back against AI tools, but you know the truth. It might be one year, it might be three,
+it might be five, but there is nowhere else to go, but AI coding. AI coding is the future of
+software engineering. When planning this final lesson, I thought about ending with one last
+massive high ROI technique to accelerate your productivity even further, but then I realized
+something important. The best way to finish isn't with another high-hating technique. The best way
+to finish here is to stop, look back and to show you everything you've learned so far in action.
+So many courses and guides bombard us with information but fail to show us how and when to use it.
+That won't happen here. In this final lesson, I've prepared several real-world engineering scenarios
+on code bases that I can publicly share where I'm building software across code bases using principles
+and techniques you've learned here throughout this course. Let me be clear, the only way I could have
+created this course was by having a deep understanding of these principles through years of hands-on
+experience. I've been using this stuff since it was first available. You can see it on my YouTube
+channel. You can go all the way back to the beginning. I am what you call an early adopter of AI
+coding tools and generative AI by showing you exactly how to write code with AI with real examples
+here in lesson eight. We can cement the ideas we've discussed throughout this course in stone.
+I'll be commenting over each one of these AI coding dev sessions. I'll explain my thought process.
+I'll even explain where you can see me kind of stop, make mistakes, hesitate, resolve issues. It's all
+about the process. I'll show which specific prompts or techniques I'm using. I'll explain why I'm
+using a specific prompt or technique. I'll walk through why I'm using an ADW versus a spec prompt
+versus the director pattern or why I'm opening up a raw Aitor instance and doing things,
+quote-unquote, hands-on. Before we dive in, I want to thank you for trusting me as your guide
+into the world of AI coding. AI coding is the biggest multiplier for engineers to ever exist. If you're
+here in lesson eight, if you didn't already, I'm nearly certain that you can see that this is true.
+The ability to communicate what we want in natural language to our AI coding assistant and then
+scale it up with principles and techniques we discussed throughout this course multiplies what
+you can build far into the sky. You now have an edge. We're learning how to code with AI in a
+principled way. You've equipped yourself to excel not just with today's tools, but tomorrow's
+advancements as well. Before we begin, I need to ask for your help now. Even with all my experience,
+all my AI tooling, all my passion for sharing these principles, techniques and ideas, I am still
+just one engineer. My reach is limited. I want this course to land in the hands of the right people,
+engineers who are hungry and ready to accelerate their careers and embrace AI coding with principles that
+will stand the test of time. If you found this course valuable, please share this course with one
+or more engineers who you know would benefit from it. Your recommendation means a lot. This course
+was built to fall in the hands of engineers who are ready to evolve with AI coding assistants and
+techniques that redefine what's possible in software development. I want to give you a massive
+thanks from me to you for helping this course connect with the right engineers. From here on out,
+it's all AI coding. You are now part of the future of engineering. Practice consistently,
+stay focused and watch the trends, but always keep your principles in hand. Tools will change,
+ideas will evolve, but principles will endure. Keep it simple. Manage the big three to hit the bull's
+eye. Write low to high-level prompts, use information dense keywords. Don't go cheap on your model,
+don't overload your context, and focus on building context from the perspective of your AI coding
+assistant. Balance your big three, then boost what you can do with the right configuration,
+write great plans to write great prompts, automate repetitive work with AI developer workflows,
+ADWs, close the loop with a director pattern, and let the code write itself. And finally,
+focus on the signal over the noise. The final principle is simple, signal over noise. This is a
+critical principle for the age of generative AI. There will be endless suites of AI tooling,
+AI coding assistants, techniques, tactics, patterns, and slop. Our ability to succeed
+as the volume of all the noise in the world accelerates, will directly relate to your ability
+to focus on the signal. Listen for the signal of the best tool for the job, the best ideas,
+the best information, the best principles. When you start really listening and shifting
+through the muck and shifting to the noise, you'll be able to focus on the signal, focus on the
+things that matter. Once you have these ideas, once you have the essential information,
+like the principles in this course, for instance, realize that not every principle and technique
+apply to every engineering scenario you're going to be in. In certain situations, writing a
+spec prompt won't make sense. In other situations, it will save you tons of time. The ability to know
+what tool, what principle, what techniques, and what information to use is just as important
+as having the information available in the first place. This is why as you progress
+in the generative AI age, with your AI coding assistance, with your AI tooling,
+always focus on the signal over the noise. Think about ways to remove the junk, the repetition,
+the slop, the mindlessness, the clickbait, and hone in on your ability to focus on the signal.
+This course is a snapshot in the grand timeline of generative AI. Follow my YouTube channel,
+Andy DevDan, for more up-to-date insights, actionable advice, and new ideas.
+AI coding, prompt engineering, and agentic software is our bread and butter. In a world where
+content can be generated at the click of a button, finding trusted information sources
+is mission critical to your success. The principles in this course are your secret weapon,
+and now you'll hear me reference all the ideas we've discussed in this lesson on the channel.
+Join me for the end of this course. Let's put it all into practice with AI coding sessions
+where we can see these principles and techniques used in real engineering scenarios.
+All right, so let's kick off this AI dev log by cloning in the principle to AI coding
+starter code base. So this is a brand new code base that you not have available to you.
+You can use this for any Python project that you want to. First thing we're going to do here is
+remove the origin and set up our environment variable file there. You can see that just got set.
+UV sync, get our dependencies installed,
+and then run the main file. So you can see there, happy AI coding. This is just a clean, concise
+starter code base that you not have access to. Link will be in your loot box.
+We're going to now set up our eight of configuration, just kind of double checking all the config.
+As you know, you want to balance and then boost the capabilities of your AI coding assistant
+with the right configuration and settings. We have sonnet setup there.
+And now we're just doing a smoke test to make sure everything looks good. We have
+cloud 3.5 sonnet running eight over version 65. So everything's looking good.
+Just kind of going through the set up, going through the process here. And we'll talk about
+what we're working on in just a second. Right now we are setting up the director configuration
+file. So we are going to use the director pattern to write this code for us. We're going to set up
+this config and let the code write itself. So we are working on GIST maker. This is a simple,
+great application to have your disposal whenever you're sharing code and a quick ad hoc way.
+As you know, on the NDW Dan channel, I often share, you know, code bases and GitHub just
+So the idea behind this project is to quickly create and share GitHub GIST.
+And do it in a way that is extremely fast. So the idea here is we want to point to a directory
+and then have that entire directory recursively get uploaded to GitHub GIST.
+All right. So by the way, sometimes I'll say GIST. I like to read things very literally,
+but you know, it's get up just get up GIST, whatever.
+So what tooling are we using here? What patterns are we using? You can see here,
+we are working on a spec prompt. And we're going to update the director config to point to
+this spec prompt. We're going to update the model to from hiku to sonnet. And then we're going to
+start setting up a little bit of a context for our director configuration.
+If you're coming out hot from lesson seven, you know that the director pattern is a
+agentic AI coding pattern that you can set up to have your AI coding assistant execute code
+and then execute the command and then feed that output right back into AI coding assistant
+until the job is done. So this is a really, really powerful pattern. You're going to see it here
+in this AI coding dev log in this AI coding session.
+It's going to write. It's going to write nearly all the code for us. So right now we're just
+going through and we're setting up that test GIST directory that we're going to use for our
+execution command that will allow our director pattern to just iteratively run a full long command
+just like you or I would if we were testing this. It's going to be able to run this code and to end
+you know read the output of our execution command and then if it needs to with the director pattern
+build a new AI coding prompt automatically and run it again.
+So we're walking through this right now just working on that execution command. We're setting up
+everything we need to close the loop right so on top of the prompt on top of the model on top of
+the context. If you want to close the loop you also need the execution command and you need
+an evaluator. We are going to use the same evaluator that the director has and again you know this
+starter AI coding codebase is available to you link in your loot box. This is a codebase that I do
+update over time so you can see here we have the high level objective
+and now we have our mid level objective. We're currently working through implementation notes
+so we just want to make sure that our main file prints out the progress and prints errors that
+needed. This is going to aid our output for when we need to feed output back into our evaluator.
+We're setting up the beginning and ending context. You can see those are going to be the exact
+same and now we're starting to write out our AI coding prompts. So if you remember in the
+spec prompt low level tasks are essentially a list of prompts right a list of information
+keyword dense prompts with the right balance of high and low level prompts. We're mostly using
+low level prompts here. We want to be really precise. We want to invest the upfront time in getting
+the implementation right. So we're looking through the code here pulling some documentation from
+GitHub just and figuring out what we need to set up in our HTTP file here. So this is this is
+something that I maybe could have skipped looking back at this now you know creating a HTTP method.
+It's basically just a lightweight wrapper around the request library but again being more detailed
+is safer than not being detailed enough. I will likely burn a little bit of time up front
+in exchange for knowing that the implementation will work in the exact way that I've designed it
+here in the spec prompt and that's always going to the trade-off right when you're writing these
+spec prompts. You're thinking through things you're investing more upfront time and energy into
+your plan and into the design of what you're building and what you'll get out of it is a great
+one-shot prompt that will write a ton of the code for you and the follow-ups you'll write after
+will be minimal. So you know classic trade-off there the question is where you're spending the time
+and is at the least amount of time that you're spending. So
+so here we are working through our low-level prompts and you can see there I'm setting up the
+low-level modules right so HTTP are files file and now we're setting up data types and data
+types is really really important right we've talked about the importance of types in previous lessons
+types really allow your AI coding assistant to understand the skeleton of your software if you're
+mid senior plus engineer you know this type driven design or you know model driven design model
+in the classic sense you know it really allows your application and now your AI assistance your
+head coding assistant to truly understand you know the data flow of your application. So we're
+working on the gist file-pidentic type there and the gist-pidentic type it's all there it's all
+getting set up we're walking through this and you know something kind of magical will happen as
+you write more and more spec prompts you'll start to solve problems and this is something that you
+know if you've ever planned a feature out before you plan a bunch of work you start to see and resolve
+issues before they even arise right and I think it's kind of fascinating and interesting that
+the best way to use a coding assistance and agentic technology, gendered AI in general,
+is to know what you want done and then really detail with the right prompting really detail what
+you want done with clear patterns so here we are where we've set up the spec prompt we have the
+director configuration file everything is looking good so we are now setting up the command to run
+our director and the director is going to iterate over our results so here we go we're kicking it
+off and first thing we're going to run into here is a quick error the director pattern right now
+in this current version and and Ada itself doesn't create files when you run it in its programmable
+form so you can see here I'm just going in adding these files creating HTTP gist and files Python files
+okay so just knocking that out real quick and committing those changes and then adding files to
+the editable contacts that was a Python file that was missed looking through changes just quickly
+you know reflecting over the low-level prompts to make sure everything looks good and something I
+like to do with my run commands like you'll see here I like to set them up so that they're reusable
+right it's like annoying it's really annoying setting things up in the terminal so what you can do
+is just pace it and you read me and then make it reusable so there we go we've kicked off the
+director pattern iteration one out of five now our economy assistant is taking our great detailed
+spec prompt and building doing all the work for us you can see there's the file module getting
+built out there's the gist module using the you know example that was specified and using all
+of our data types and then of course here is our main method that is going to accept the path
+and the description so again you can see clean five multi-file edit there we have there we have a
+fantastic multi-file edit our evaluator just ran it caught an issue so it's scrolled back up to that
+you can see here you know looking back at this this issue actually doesn't relate to the gist
+code this is a bug in the director that I have in this current old old version so you can see
+that error is getting kicked off again basically it's a string parsing error inside the director
+when we fire off the execution command so I'm going to stop the code here I think after the fourth
+attempt it's making minor tweaks and improvements but they're all unrelated to the core functionality so
+I think right here on this fourth attempt I'm going to cancel there we go and I'll recognize that
+this is actually an issue with the director and not the gist maker itself you'll see that a little
+bit here and we'll skip over that yeah there we go so we're adding parentheses there that's great
+and you know one of the great parts about the director pattern is that your egg coding assistant
+and the director is just running this command so you can take it execute yourself like I have here
+and you can see the gist was successfully created so you'll see something here right only two files
+so the code didn't execute perfectly and by the code I mean my spec prompt wasn't written
+precisely and why was that it's because we have no nested files right I didn't mention I wanted
+the recursive functionality right I didn't mention the recursive file functionality inside of
+the spec prompt okay so here I'm just reviewing the director log validating that the issue is what
+I think it is with the execution command you'll see that automatically get updated here in a second
+but I'm going in and updating the test gist directory so that I can validate that you know this
+code is you know getting submitted or not getting submitted and you know you'll find that that here
+in a second that I needed to add the recursive functionality so that's we're going to add here
+in just a moment so you know as mentioned previously when you run spec prompts and when you run
+the director pattern you should always expect to come in and cover something that you missed
+or your a coding assistant fudged so you can see I added files as a only context item I'm writing a
+simple you know mid to high level prompt here update to support recursively fetching files
+there is nothing else to miss in this there's only one method so I don't need to be super specific
+and you know I'm just asking for exactly what I want at a high level and that's going to get the
+job done the only tweak I'm going to make here is we need to update recursive to always be on we
+always want recursive files and now we can rerun that functionality and you can see the description
+there I replaced the spaces with dashes to circumvent the current director pattern
+flaw so running this we get this error error creating guests it's because we're now adding slashes
+to our file paths because we're looking at modules so we need to you know replace that slash
+we're going to use underscore underscore here for directory paths so that's what we're going to do
+there so you can see here we now have a successful execution we have those modules underscore underscore
+test and we have all of our files now right so that's four files and not directory automatically
+uploaded in a brand new guest for us so that's the functionality we were looking for
+one thing I'd like to do at the end of my coding sessions now is to just update the read me with
+usage documentation around the new thing that was just added right every time I sit down
+especially with add coding tools now I always like to make sure I do something net new or you know
+net complete and when I do that I always like to update the read me with concrete documentation
+for myself or other engineers that will be you know looking at this code in the future
+you know make sure that everything you've done is crystal clear remember we're not just
+communicating with our our language models and our accounting system we have our engineering team
+and you know maybe most importantly we have our future cells so that's all we're doing here updating
+the read me with usage docs on how to use the brand new guest maker so that's our first AI
+coding session wrapped up you can see how using these powerful AI coding patterns allows us to do a
+lot more and a lot less time so that's it for this one let's move on to our next session
+this is an exciting AI coding devlog this is an exciting session
+we're adding image generation support into one of the tools I've briefly kind of shared
+on the youtube channel a couple of times but we're looking at the brand new black force labs
+flux models we want to add support via replicate directly into a CLI tool so that we can quickly
+generate images and in this devlog we're also going to add support for right through the CLI
+breeding images so we want you know vision model support
+so this is going to be a good one we are once again firing up a brand new spec prompt this is a
+massive pattern I think one of the most important takeaways from this course is that you should be
+asking your AI coding assistant to do more and the best way to do that in a scaled way is with
+spec prompts right it's with specification documents where you write exactly what you want done
+you literally just write about it we have this great template I've built out this fantastic
+templated format for you that you can reuse links in your book box and you know you just go through
+you fill out the spec prompt and you just write in detail what you want this allows you to scale
+up what you can do with current generation large language models and powerful reasoning models
+like the oh one series and it'll allow you to do more as the next generation models are allowed so
+you can see here we're setting up the spec prompt we're adding replicate image support and vision
+model capabilities into alo one alo one is an agentic CLI tool that I'm building out that is going
+to be the framework of a lot of the agentic work that I'm going to be doing in 2025 I will be sharing
+more details on this tool on the channel but that's kind of the high level we are walking through
+the high level objective middle level objective and right now we're writing out that exact
+command that we want to see so this is called API driven development it's a very very powerful
+engineering technique where you basically write how you would interact with the tool that you're
+going to build right now we're building a CLI tool that means we can build the exact commands
+that we would use to interact with our CLI tool so right now I'm looking through you know just
+going through one by one looking at the different configurations that I want available so you
+can see here alo one image gen we pass in the prompt for the image and then we pass in the
+model and then we pass in count so dash c for count dash r for ratio
+now I'm moving on to the second command alo one image read
+and then we take an input path to an image and of course the prompt
+and the default is just you know describe the image right
+we're going to use just classic tpt4 models for this there are surely you know cheaper
+local alternatives but the price here especially if you're using many you know it's negligible
+so now we're moving on to a limitation note so we're just writing random thoughts that are
+relevant but don't fit into any other category here so use replicate API to generate images
+creating new data types for each command CLI param and then we're making sure that we're using
+great defaults okay so now we're going to start building up the context this is one of the
+great reasons to use the spec prompt is that when you're writing a new feature or you're building
+on a new application again it forces you the builder the creator the curator to really clarify
+everything that you want done and that includes the context that you want changed or
+or prepared for your AI coding assistant to view right to view or edit
+and lesson two we talked about the big three we need to discuss that principle early on in this
+course because it is foundational to a coding and in the spec prompt we have this concrete section
+where we specify the context it is that important and you know a highly highly suggest using a spec
+prompt format like this for that reason right because it forces you the creator the designer the
+builder to concretely design to concretely state the context in the beginning and in the end so
+I just installed the replicate API the replicate Python API and now I'm pulling an example right so
+these coding examples are really really important when you're integrating with APIs API integrations is
+a whole class of engineering that a coding assistant and large language models they're really good at
+if you give them concrete examples and again if you create a clear data types for them to work with
+we're working through our low level prompts now right so I hope you can like see
+the value and the spec prompt you start with that title then you move to the high level of what
+you're trying to accomplish and then mid level you start breaking it down into units of work
+and then you move to context and then finally once you've kind of stated everything up front
+low level so we're adding some more context as I'm working through this I am thinking of
+context that was missed and context that needed to be added
+and then it's business as usual right we are defining our types in the first task is going to be a
+very powerful pattern usually you want your structure your skeleton specified in the earliest
+task possible and so I'm working through that right now kind of looking back at the API
+right leaning on API driven development to help define my Python patented types which will give
+our application structure so just working through that right now we have flux image gen parameters
+and open AI image read programs obviously the image gen programs are a lot more complex there's a
+lot more going on there but working through this something to note I do make an error here I do
+make a little mistake we're specifying the Python types as literals which are not compatible so
+we'll see that later on and we'll end up working through that pretty quickly
+update replicate that Python and now we're just writing the you know low level prompts inside of
+that for that files changes and you can really start to see the structure here right we're using
+these prompt phrases as we learned in lesson three to really keep our prompts keep our lists of
+prompts really really clean so you can of course update multiple files within a task as long
+as they're related right that's the idea you want to keep them related so you can see they're
+actually end up pulling out that replicate a call into its own task so in task one we want to
+create our new types in task two we are adding image generation support via the replicate API
+and now we're just going to review that and we're adding a detail here on the model
+everyone to make sure that we add the proper black forest labs prefix because we're going to pull
+that off from inside of our our CLI programs
+and now we are looking at our third task which is going to be our open AI vision support
+so you know the way I've structured this spec prompt we define our types first add replicate
+then we're going to add open AI support and then task four is going to be our our CLI level
+right so that will be our main we're going to update our main via a type or command right because
+that's what this that's how this code base exposes this functionality so here we are just really
+clearly finding this prompt right add prompt image passing the programs we specify the type of the
+programs and then we're saying the return type there really explicitly right so just walking
+through things here and then the last step here update main.py as you know you want to specify
+the location of your change and then you want to say what you're changing and then you want to
+details to that right so we are once again writing very very clear prompts we are continuing to
+communicate clearly to our large image model and our AI coding assistant you want to reduce the
+ambiguity in relation to how much you want a specific structure right if you don't care about
+what your application looks like and you don't care about the existing structure of your code base
+then just add a ton of context and ask your AI coding assistant something really high level and vague
+right you can get the job done it will just be sloppy and your AI coding assistant will have to
+infer a ton of details right but the low level prompts you've learned to write throughout this
+course will help you maintain code structure and you know professional code base patterns and
+structures throughout time with your AI coding assistant so here we are we fired up and Ada
+architect instance this is a really interesting format that we have here I have a
+claw 3.5 sonnet architect model running on a claw 3.5 editor model and we're making a couple final
+tweaks to our spec prompt just gotta reviewing things and now
+we're copying it all in and letting our AI coding assistant write the code for us so
+lots of great stuff happening here you can see step one our AI coding assistant our architect
+is saying here the types here's the replicate functionality here is your open AI module
+it's going to make some modifications there and then of course here's your new you know here
+your two new CLI commands image gen and image read so now the architect right the architect has
+finished right we even have some nice CLI lines there showing us how to execute so
+the architect finished now our editor is taking in that context from our architect and now it's
+writing the changes right so we have this two model prop chain one drafts one edits this is a
+really powerful feature in Ada something that you'll miss if you don't you know dig deeper and
+look at the configuration and the possibilities of your echo tool so all the changes are
+happening here I am just you know sitting right now hanging out it's always fun watching the playback
+you know after you do all the work after you design a great prompt think through what you really
+want done and make sure that you clearly communicate that via a spec prompt you can then you know just
+hit enter let it fire off and write all the code for you so ran to a little linting issue here
+our AI coding assistant fudged our model we need to pull that it actually like replaced
+and kind of mixed up two functions so Ada caught that with its linting
+functionality and it asked you want to fix this automatically we just said yes here again just
+another great you know piece of functionality coming from Ada right out of the box
+not a lot to say or add there that resolved the issue immediately for us
+okay so we now have that new open AI prompt image function you can see there that
+you know that spec prompt costs 15 cents to execute all of that code using architect
+yes I remember you know it effectively doubles the cost because using architect and editor
+it again if you're working in production code basis if you are on the board with saving time
+it's always worth you know the five ten cents to get more of your time back so right now we're
+we are reviewing the changes we're looking at our typing style I see that OS dot get current working
+directory that looked a little interesting but that all works and now we are going to actually
+execute some code in our CLI to see if there are any bugs in our code
+rerunning sync and now we're going to run uv run l1 and just test our run command so you can see
+there's that literal error that I mentioned earlier we're going to quickly fix this with our
+AI coding system and this should bump it to a enum we're going back to that exact same AI coding
+session remember Ada has the chat history and it has our previous prompts and you know all of our
+contacts so if we just paste that in there it's going to resolve that for us automatically so
+we are still running an architect mode probably unnecessary there actually you know definitely
+unnecessary but we're getting that fix it updated some auxiliary code that also needed to be changed
+based on this change this is another great part about just having your AI coding assistant
+make even small changes there's going to be scenarios where you're going to miss something
+when you're changing something manually on hand right AI coding assistant can maintain context
+much better than we can especially over long periods of time so here we go we're setting up our
+command and we have our or we are we're almost ready to run a command so we're missing our replicate
+API tokens and we're going to copy that here obviously I'm going to skip over this part
+and our playback here I am sharing a lot of valuable things throughout this course and
+this lesson but my environment variable keys will not be one of them but no so you can see there
+it worked so we have our two new images generated by replicates we have these kind of beautiful
+mountains in this three two ratio so now we're going to make a couple tweaks
+we're updating the model to flux dev we want four images generated and we want to run
+16 by 9s and we're updating the image prompt here a little bit making a tweak to this we want to
+create some uh space shots of the ISS so we kick that off and we can see this error here right
+so this is a small error that you can see I'm I jumped right into a prompt to resolve this
+in my AI coding spec prompt I said 19 by six and six by 19 instead of the inverse so
+I'd very quickly and resolving that here you know one of the big advantages that AI coding tools
+give you is as soon as you identify an issue you can fix it immediately with a quick prompt right
+this is why we've said in the past when you're writing these large spec prompts you want to get
+90% of the way there and then expect to write follow up prompts okay so we have another quick
+issue here that I discovered that was outside of the plan right so it wasn't exactly in my fault
+air quotes feel like if you're the engineer you should assume more responsibility than less
+everything is your fault if it bugs just ships of reduction but anyway there's this issue here where
+replicate will return a image URL sometimes and then other times a list of image URL so
+we wrote a quick prompt once again to resolve this as soon as you see an error as soon as you know
+what the error is pass it off to your AI coding assistant let it do the hard work for you
+there we go we have that execution we now have four beautiful images and 16 by 9 ratio generated
+on replicate using the flux dev model and we now have access to this right through the CLI right so
+this piece of code is working that generation worked really well we worked through two issues one
+because I asked our AI coding assistant to generate the wrong thing through the spec prompt
+but both we immediately resolved with an under a minute each right so now we're working on the
+read command so we we have image generation and we also have image reading functionality
+we just quickly added that via open AI GPT4 vision models and there it is that not much else to say
+there that that worked really well right GPT4O quickly read that the last thing for this dev session
+I want to show you a couple files here running AI developer workflows okay so this is
+one of the first ADWs that I ever built and I want to share with you feels like a special thing
+to share here so you can see I'm running two version bumps so I'm bumping the version of two
+applications that we're working with right so very simple right we have two ADWs of just bump the
+version right running two AI coding prompts and then we use UV to build this tool so that
+ALO1 is available throughout the command line interface right throughout the terminal
+so now we can just run in this temporary directory image testing we can now just run
+image gen and you can see that we have two brand new images right so I have one script to automatically
+bump versions and build the ALO1 CLI application for me right so whenever I want to ship an update
+basically I run a single script okay so now we're testing the image read I want to stress that ADWs
+are ultra ultra powerful we're only tapping on the capabilities you can see there we got the
+read command output and that concludes this AI coding devlog we are working in the multi auto
+complete benchmarking tool so this is a fantastic tool that we built on the channel and what we're
+going to do here is do a couple of things we're going to add Olama support so right now these
+models only run the big three Anthropic Google and open AI and we're going to boot up the client
+and the server here clients on the left running a VIT application and the server on the right running a
+Python application as the server this is a fun live interactive benchmarking tool called Benchi
+and we're going to be working in this tool called multi auto complete ALO1 benchmark so you can see
+here with this tool if you type the beginning of a couple functions we have listed it will run a
+comparison against a whole slew of models right a whole array of models we type gen the auto completion
+is generate invoice so after it debounced two seconds every model will kick off and give us an
+auto completion so what we're doing today is adding Olama Python support to this application right
+local models are taking off in a massive way what I sat down to write this AI coding session I
+thought hey this would be a great thing to kind of show off it intersects with a lot of popular
+interests and the gen AI space right now so that's what we're going to do here we're going to add
+Olama support to our live benchmarking tool so right away you can see me jumping in here and what do
+we do what's the first thing we do we make a spec prompt right I hope you can see this pattern this
+is the third time in a row this is happening I before hopping on to comment on this
+AI coding session I have written about the respect prompts just today okay each of them generating
+I don't know two two hundred plus lines of code easily probably a lot more than that
+but this is a trend okay I just recall this trend if you want to do more with your AI coding
+assistant with large language models with these next generation models that are coming out
+oh one the new Gemini's all this incredible tech right you need patterns that can help you scale
+your impact and tap into their capabilities the spec prompt is the most blunt forward way to do
+that right don't write a small prompt don't open up an ad hoc aider instance or you know a cursor
+or a zed chat prompt and just start typing away stop stop please stop right a specification document
+that details everything you want done in your session okay think about the future you want completed
+thing about it end to end what needs to be changed okay and then write it out in a spec doc okay then
+execute the spec doc as a kind of super prompt right a spec prompt with a list of prompts inside of it
+okay that's the whole idea here right scale your impact stop writing code uh one line at a time
+right that's the analogy right if you're running code in chat mode going uh one change at a time
+type type type enter type type enter um you're doing it the slow way now that is the new slow way
+okay so anyway so we're focusing here on the working done we're just going through the spec prompt
+right we have the uh top level high level objective mid level you can see a mutation
+notes there at the top and now we're working on the low level tasks so we have the beginning
+context you can see i skipped the ending context and i'm just starting to work on the low level tasks
+once again uh if you want consistent results you need patterns and you need structure
+once again you can see i'm building out our typing system right i'm saying let's let's let's
+update these types to support this new model right llama through point two
+and then we're moving on to generating our new olama lm python file always out with your types
+your types create structure your types create skeleton for your applications
+okay so looking through the olama python codebase for example usage this is another great pattern
+that you can utilize if ever you're integrating with an api or a new tool or a library type of the
+code out tell your icon assistant where you want that code what you want returned thanks to your
+type system you can see there we have this prompt response class that's exactly what we want
+returned here and we are going to uh just clarify our high level prompts here for the kind of titles
+of each task and also make sure that we're getting our front and types file as well
+and interesting thing here to call out we have types dot d dot t s and back end types as well
+right you want to be validating on your back end and on your front end so you can see there we're
+pulling in our types and we are making sure that we are updating both the front and the back end
+all right so continuing to work through the low level tasks here
+adding some more clarification just saying you know use code snippet as a guide
+and we're continuing to use our information dense keywords right you can see it over and over
+I've stopped mentioning it it's kind of you want to use this clear keywords create update
+def function definitions keywords like use add default can really lean on these keywords
+because the amount of information that they're able to communicate to the lm
+and your a code assistant is so much information that can communicate in a single word right
+information dense keywords make sure you're using these in your a coding prompts
+let level prompts become more and more useful as you work on existing code bases right
+um you might think wow these are really detailed prompts every single time we have to write
+you know this much detail with say the file the function name all this stuff you can find the
+middle level but I also want to say in existing code bases there's already patterns and structure
+that pre-exist you don't really want to come in here like it's a bad it's like an anti-principal
+to come into an existing code base and have an a coding assistant just update stuff for you
+without you being detailed about the patterns that you want reused right there's some amount of
+that that the a coding system and the language you want to will pick up on and there are other
+things that as you have seen models will just blow past make mistakes duplicate code
+duplicate it improperly right there's a whole slew of issues that we've discussed and a lot of
+it comes back to lesson four um you know you want to strike the right balance of the context model
+and prompt uh you want to make sure you have the right amount of context and prompts specifically
+you want to make sure that you're using prompts that convey exactly what you want done
+up to the detail that the language model in your assistant needs you to right and no more
+because then you're really burning time here right
+you
+we're working through our low-level AI coding prompt
+we
+are looking at our server method making sure that everything's wired up properly making sure
+that there aren't any changes then need to happen there and now we're returning our attention
+to the front end so the front end is divided into stores uh just classic you know front end
+context stores and we also need to update our front end to add a new column to our table
+for this new olemma model we're adding that to our context again we are thinking through
+everything we want changed and we're just writing about it right we are using high-level
+prompts as our task detail and then we're dialing in with a lower-level prompt
+to really detail out exactly what we want change and where needs to happen
+so here we are using a pattern we are continuing with the pattern in the code base we have some
+tests each one of our language model providers has tests that basically just run you know a simple
+ping to large language models available for that provider we're adding a quick test there for
+olemma so we can just run that test to know that everything's working well
+we are adding that uh you know row entry so we're saying append a row data entry
+for the new olemma 3.2 and notice how I updated that keyword from add to append
+add does not specify a location append says add it at the end right it's an even more information
+dense keyword than add right append means more than add
+looking through things here we're just you know reviewing our configuration file we want to
+make sure that everything is set up right i am toggling on sonnet as the default model and
+just looking through some configs we have auto commit to false and everything looks good there so
+I close that and now we're going to boot up either uh with sonnet as both the architect and the
+editor once again so in this a coding dev log in this a coding session and the previous you saw
+this pattern we're using clothep.5 sonnet as both the architect and the editor i do this sometimes
+because i know that i don't need o1 and or sonnet can get the job done so now we are working through
+setting up our context and we just need to add a .ts to that file there my multi lined edit got a
+little cut there so we have all the context i'm using this new aiter functionality called save
+where you can save your context and reload it into a different session all the links to aiter
+documentation will be in your loadbox and that's it so now we have our powerful spec prompt we have
+all the context we've thought through the change and now we are letting our architect draft the code
+for us so this is the pattern this is what it looks like to write code in the direction of their
+max capability scaling with the potential of new language models new reasing models great base
+models so on and so forth right so again you can see our protect draft the changes editor is now
+making the changes after we approve it there's the text prompt from alama there's our test for alama
+there's our llem model support for that new lama model there's the alias there's the
+column in the front end right all these files across server across client they all were updated
+all thanks to our great detailed prompts you can see here we do have a bug we do have a bug here so
+I immediately caught this we are code curators we are commanders of compute we are managers of
+our economy assistant so you want to be reviewing everything that they put out as you progress with
+your skills you'll be able to trust it more but we always want to be reviewing I highly highly
+recommend you always you always have a review phase you know where you actually look at the hard
+code generated and your review so made a little tweak there I did modify that by hand you know
+minus points for me there by for making that change by hand even though it was a small change
+you always want to be handing off the coding process to your head coding assistant if for no other
+reason just the principle of it I noticed that our text prompt our alama functionality does not have
+timing functionality so it's not timing the duration so we're just going to add that quickly here
+so I'm saying rap text prompt try block in a time it call and you can see all the context
+there I have utils py loaded in a file to the right and you can see you know that is a context file
+so our icon assistant can see everything it needs to accurately execute in that prompt
+you can see it updated not just the code but also the test associated why because we had it in the
+context and our prompt so I'm just dull tucking that change I'm making sure that that's looking good
+and that's what I want and that I'm hitting yes here so you can see we're going to get a with
+time it context manager block wrapping that code and now we can rerun our tests and we're going
+to see that test passed and now we are more confident about our alama python method here
+you can see the prompt response getting built that's great we can now close that with confidence
+what else do we need to look at here to validate that this all works we need to make sure that our
+prompt is routing to alama versus open AI recent topic this looks good I'm now checking the
+front end store and data type to make sure that alama was added to the model elias that looks great
+let's see if we got a column perfect we can see we have a or a new row so we do have a new row
+there for alama so now we can go over to the user interface reset and we now have that new
+model so let's go ahead and execute this and we're going to type c a yeah calcue and now we want
+some auto completes right so let's see we have a error here for alama 3.2 1 billion parameter this
+is our new model so something went wrong and it looks like we have an enum issue right so this
+is just like classic enum issue I'm just going to copy this come back to my eater instance and you
+can see I just say enum error colon and I paste the error okay so super straightforward thing
+and I think I actually end up stopping this like I don't think that this is my accounting assistant
+did not specify a great solution so I did not accept that again this is the importance of reviewing
+your code everyone so while your assistant is going to be wrong so you can see here I'm coming in
+unfortunately by hand once again but the tweak there was to call dot value on the enum right since
+that's an enum coming in so now we're going to rerun this and we'll see something really really
+cool we can see our alama 3.2 1 billion parameter running on my device is now giving us auto
+completes that auto complete was incorrect this one on the other hand is correct so really
+fantastic that costs no money and that ran in less than 200 milliseconds which is fantastic
+and so you know you can see that that prompt is you know it contains all of the auto completes
+that we can work with it is a very small model so it gets this problem wrong quite quite a bit
+you know the error rate is really high actually but you can see it trying so you can see
+you know lama 3.2 1 billion parameter we now have support for that inside of our live benchmarking
+auto complete tool so fantastic so what what's next right what else can we do so there's another
+important technique that we've touched on a couple times let's write a new AI developer workflow
+that automatically adds old lama models for us here we're going to live walk through creating
+a AI developer workflow so it's going to be really cool this is a hands-on example of building
+an AI developer workflow for a legitimate use case so we are walking through this right now and
+we're thinking through what do we need when you're writing AI developer workflows the trick is to
+think about if you were going to build this what parameters would you need to build this in a reusable
+way you're going to want to think about that from your context from like the context level right the
+classic big three context model and prompt but then also you're going to want to think about it a
+level higher as well so like what variables you need to pass in for the new version of you know
+this instance of your AI developer workflow that you're running that'll make sense in a moment you
+can see here we are pulling in the context from our spec prompt this is a massive advantage of
+writing spec prompts there are artifacts that live on in your code base that you can always
+refer back to so you know we just wrote the spec prompt that allows us to add new lama models now
+we can reuse that spec prompt to build out an AI developer workflow that takes the problem of adding
+a lot of models and solve it in perpetuity right we we're now going to solve this problem forever
+if they're really interesting ways to slice this but the one way to think about this is that
+you know right now I'm building out a kind of micro intern right or a specialized intern or
+junior engineer of that knows how to solve this one problem very well and nothing else right so
+that's probably not the greatest analogy but you get the idea right we're building out a reusable
+solution to the problem of adding new lama models across our client and server right
+if you want to take this a step further we would want to build out some more integrated you know
+multi-select field that maybe pools lama model somehow you know who knows who knows how we
+would have to build that out but you know this is a contained solution that will work in our code
+base and so what you're seeing now is I'm adapting the low level tasks into the ADW and there were
+placing our model alias everywhere we need to right right right now I am running the
+list models command also going to set this detector or else to false and then we're going to run
+our new ADW when this code gets executed so I'm going to turn on auto completions here get some
+get up code pilot action to help me you know quickly work through the CLI argument variables
+and then we're going to also update these these need to be set to none if these don't exist we need to
+throw some errors this looks great we're reviewing our ADW you can see there we set up a nice
+low level prompt we adapted our spec prompts low level prompts and made it a dynamic string so
+we're filling in that string with the model name and model alias and now we're just working
+through a couple of just small directory related things with firing off UV and Python
+we're looking at olama we now need a new model to add right we have this new capability let's
+go ahead and add a new model so we are of course adding another than the incredible
+215 coder 14 billion parameter and we're just walking through exactly what we need to execute our new
+ADW so we need the olama provider string we need the model name 225 coder and then we need an alias
+for us to use in our do our functionality right so
+we are just changing directories making sure that we're in the right place here we need to be
+inside of the server directory so that we have access to our you know UV Python added libraries
+and they're working off so again just working through directory stuff here I need to modify the ADW
+run as if the current directory was in the server directory so you can see that I'm adding dot
+dot back so that we exit the server directory so that we can see all the other files so running it
+once more running into one last issue with the read me in the read only contacts we're just going
+to end up removing that file we actually don't need it to execute this again this is all just
+file directory stuff unrelated to our core functionality but you can see here our ADW is getting kicked
+off and the problem of adding olama models has now been fully automated by our AI coding assistant
+we're going to see this change get rolled out here and this is where you can really start to see
+the magic of AI coding patterns like the ADW and we're really leaning into the fact here that
+ADA is a foundational programmable AI coding assistant so you can see our model has its own row
+and the moment of truth let's see if our ADW Alamo model code generated looks like it did look at
+that a generate invoice that is the correct autocomplete let's run another we'll run CalCUE
+so we're looking for CalCUE late total and we can see both our
+Quinn model getting CalCUE late total price correct and Lama 3.21 billion getting it definitely wrong
+air quotes it's using quotes CalCUE late that's wrong but again you know we can see we're
+running this great model now locally on this multi autocomplete benchmark
+there it is Quinn coder once again getting the answer correct and you know that's the power of
+AI developer workflows we can now just add new olama models to both the front end and the back end
+and keep in mind you know the prompt you write the context you add to your AI developer workflow
+it can be anything right it can be absolutely anything it can operate on any part of your code base
+as long as it's visible to get basically is the only caveat there right so you can see here we're
+you're just kind of having some fun running additional autocomplete prompts just you know
+checking out the performance of Quinn great local model that's that so
+we're going to do one more thing here we're going to go ahead and run our ADW again right I think
+it's really important to showcase this we're not just going to do it once we're going to do it
+again just to really showcase this idea that your ADW can be run over and over and over and over
+and solve that problem that you have designed a solution to as long as the problem doesn't change
+right basically forever and when the problem does change or you need to enhance it and
+for capability for instance we might want to add you know new open AI model support or new
+and traffic model support then we can update
+you can see here it's running that exact same update again across all of those files
+you know we're adding the llama 3.2 3 billion parameter model across what is that six files
+front in and back end that's a detailed you know very precise change and how were we able to do
+it by sticking to all the principles we've learned throughout this course
+imagine the big three great planning is now great prompting right we're detailing things out
+in the spec prompt and you can see here we're running our automatically generated test right so
+we're just rerunning llama LLM test you can see we have new tests you know things are kind of
+happening for us now after we put this initial effort in right
+let's look for that there it is llama 3.2 there is that prediction not exactly right but you know
+the point is here we now have that new added model we now have this visibility in our multi oh
+complete benchmarking tool so let's go ahead and just run a couple more examples
+everything you've learned in this course all these lessons
+none of it matters if you don't take it put it into practice and really utilize it on your
+code bases I can tell you exactly where the goal is but in the end you have to go travel
+put the work in mind the gold learn how to sell it learn how to manufacture with it so on and so
+forth right take everything you've learned here and get your reps in right practice execute build
+create really get it done so honestly sad for me here to wrap up this course we are coming to the
+end of principle a coding you know depending on how interested engineers are we may have
+additional videos DLC maybe I'll release a DLC pack I would love for the course to do that well
+that you know I would want to invest more time into this but all the core ideas you've learned
+throughout this course throughout each lesson was made to help you not just today but tomorrow
+in the following years this is why we've taken a principle based approach to AI coding every single
+principle throughout every single lesson will help you not just today but tomorrow they'll help
+you stand the test of time of the rapid change in the gender of AI age that is approaching us all
+there's going to be new tools new models new innovations so many new interesting things and they'll
+all seem very flashy that's why I want to recenter you here as we come to the end as we close the
+loop on this course on a recenter you around the principle for this final lesson signal over noise
+hone in on the best tools for the job the best information the best engineers that you can follow
+that you can look up to that you can work with and around that help you filter out the noise
+signal over noise AI coding is the largest multiplier for software engineers to ever exist I hope now
+here at the end of lesson eight of principle AI coding that is absolutely clear to you also you
+on the channel stay focused keep building and thank you for trusting me

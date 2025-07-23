@@ -1,0 +1,880 @@
+Welcome to Lesson 5 of Principled AI Coding, and this lesson you'll learn how to consistently
+generate massive amounts of code with a single prompt.
+In engineering, there are always bottlenecks and limitations.
+Before opening AI's reasoning models and in Tropics, Cloud 3.5, the LLMs still had
+major limitations.
+They would hallucinate, cause issues, and couldn't solve problems consistently.
+That is no longer the case.
+Now, it's our abilities that are the bottleneck.
+The question is now, what can we do to unlock the full potential of these incredible models?
+Spec-based AI Coding is a technique you can use to capture more of the potential of these
+models.
+In this lesson, you'll learn to use the spec prompt.
+A spec is a specification, which is also simply known as a plan.
+If you're a senior plus engineer, you're likely familiar with planning your work, creating
+architecture docs, and figuring out what needs to be done before you do it.
+Planning your work is a massively important skill for AI coding.
+Why?
+Because powerful reasoning models can do more.
+The true limitation is in what we can ask it to do, writing a great plan, and passing
+it to your reasoning model, enables you to tap into its true capabilities.
+And we've done so far in this course has led us to this lesson.
+A great deal of AI coding in the future will likely use the patterns we'll discuss in
+this lesson.
+The principle and key information behind this lesson is simple, but I have to warn you,
+this is the lesson where things can become challenging.
+There's a large mental shift needed to use the principle and information in this lesson.
+This is where we really start deviating from traditional coding into something completely
+different.
+If you're able to digest what I have to offer in this lesson, you will evolve into an
+engineer of the future.
+You'll wield massive amounts of compute to get more done in a fraction of the time it
+takes another engineer.
+It's incredible what you can do when you invest in yourself and when you invest in a great
+plan you can use to drive results.
+Let's start with the principle.
+The plan is the prompt, plan equals prompt, and that means great planning is great prompting.
+In this lesson, we're going to stop firing ad hoc high and low-level prompts to accomplish
+one task at a time.
+Instead, we'll use powerful reasoning models like OpenAI's O1 model series.
+We'll combine it with a two-step prompting mode built into Aitor, and most importantly,
+we'll write a comprehensive spec, also known as a plan, which will detail exactly what
+we want done.
+So just to recap, there are three big ideas we're going to combine in this lesson to make
+your AI coding abilities go parabolic.
+Reasoning models, spec documents, and architect mode.
+Let's break down exactly what these are and how they work together.
+Advanced reasoning models have the capabilities to work through and iterate over your prompts,
+context, and code.
+This drastically differs from traditional models where they're effectively blurting out
+the first answer they think of.
+There are tools that chain together prompts and their outputs to improve the result.
+This is a technique known as prompt chaining or chain of thought.
+We're going to use Aitor's version of this called architect mode.
+With this mode, you use two models, one to draft changes, and the second to make edits
+given the draft.
+This mode alone will drastically boost the accuracy of your code generation.
+But when we combine architect mode with powerful reasoning models and a great plan, we get
+something extraordinary.
+A powerful model that can reason and think through the changes you want, acting as an architect,
+and then a faster base model like Clawed 3.5 Sonic, that can edit code more accurately
+thanks to the work of the architect reasoning model.
+When you put these three innovations together, you'll generate more code than ever was thought
+possible before in record times with minimal errors.
+We couldn't discuss reasoning models and architect mode until now because we've been building
+up our AI coding skills, multi-file context management, using information dense keywords, prompt
+phrases, balancing high and low props, and avoiding pitfalls are key to being able to
+properly willed reasoning models at scale with the spec prompt.
+Making mistakes with reasoning models is more expensive in both time and monetary costs.
+I want to note that what we're really doing here is continuing the trend of learning how
+to best communicate the most work to our AI coding assistant to generate the outcomes
+we're looking for.
+Over each lesson, we're generating more and more of what we want done using our AI coding
+assistant using the right coding principles, the right model, context, prompt, and techniques.
+A big piece of what engineers miss is the true capabilities of these reasoning models.
+You can do so much, you can build so quickly that it's hard to mentally wrap your mind
+around.
+It's hard to make the mental shift from writing code by hand, then writing code with props,
+to then thinking through everything you want done, planning your work, gathering context,
+gathering documentation, and then writing out each step in detail before you hand it off
+to a powerful reasoning model that does all the heavy lifting for you.
+But if you can do this, if you can push through this lesson, you will be AI coding like very
+few can, and you will be ahead of the curve.
+This is where this course really begins to accelerate.
+As we've discussed, AI coding is a new skill.
+It requires a different mindset.
+You're shifting from the how to the what, you're becoming a commander of compute, where the
+compute is your language model and your AI coding assistant.
+The only missing thing is the techniques to truly capitalize on powerful reasoning models
+and the mindset shift required to scale up your AI coding.
+That's what you'll learn in this video.
+We're scaling up your AI coding abilities.
+The key takeaway here is that with the techniques we'll discuss in this video, the only bottleneck
+preventing 100 and 1000 plus line code generations across 5, 10, 20 files is you.
+It's your imagination and it's your skills.
+Here in this lesson, you'll widen this bottleneck and tap into the capabilities of powerful
+reasoning models.
+Keep this principle close.
+Great planning is now great prompting, planning equals prompting.
+Let me show you exactly what I mean by this and how it can truly change the way you engineer.
+Let's open the terminal.
+If we run LS, we can see our previous four code bases.
+Let's clone in the lesson five code base.
+Link will be in your loot box.
+We'll CDN to our lesson five code base and let's open your favorite editor here.
+I'm going to run a code dot, per usual, I'll copy my dot in file from the previous lessons
+code base.
+Let's open up the readme and run through the setup instruction.
+So right away, we'll run UV sync to install our Python dependencies and for this code base,
+I recommend you set up both the open AI API key and your anthropic API key using models
+from both of these providers will give us optimal results.
+Now we can run our primary script with UV run main and you should see hello AI world.
+If you open up the main file, you'll see a simple bare bones Python application.
+Fantastic.
+Now what are we doing in lesson five to learn spec prompting specification prompting?
+We're going to rebuild our transcript analytics application from scratch with just two spec
+prompts.
+And if you follow up prompts from a base model, we're going to recreate everything we've
+done in the previous four lessons in a fraction of the time and effort.
+Now inside your readme, you'll notice a new Adder command.
+I'm going to go ahead and copy this and paste it into my terminal window and let's walk
+through this.
+So this is how you run Adder in architect mode.
+You can see I'm specifying two models.
+I'm running the O1 preview model in architect mode.
+And then I'll specify claw 3.5 sonnet as our editor model.
+Adder should give you a message like this.
+You can see main model is O1 preview editor model is claw 3.5.
+I recommend O1 preview or O1 if that's available to you combined with claw 3.5 sonnet for optimal
+results.
+But if you don't have access or don't want to get access to anthropic, you can run exclusively
+with open AI base models using the dash dash O1 preview and architect flag alone.
+You also can use O1 mini, but it is not recommended as many as quite a bit more error prone.
+Keep in mind the common pitfall of going cheap at the expense of experience we discussed
+in lesson four.
+I know the reasoning models are particularly expensive, but using them and gaining experience
+with them is more important.
+For what's coming next, you're going to want to be ready for the next generation models
+that are coming after these.
+If you don't practice with these models and understand it, how will you know what you
+can do?
+We're going to use O1 preview, but if you have access to the newer O1 model or anything
+beyond that, I highly recommend you use that.
+Now you'll notice here in our file explorer, we have this new directory name specs.
+Let's go ahead and open this up and let's start with the transcript analytics dash v0
+markdown file.
+The spec directory is where you can store your specification files.
+This is where you can store your plans.
+Now I'm going to collapse this plans that we can see the high level sections and let's
+walk through what a specification document looks like.
+This is what we're going to use to generate massive amounts of code.
+So let's take a look at the structure.
+At the top, we have our high level objective, create a CLI transcript analytics application.
+If you close this and open our mid-level objective, you can see five more detailed bullet
+points.
+Build a Python MVP, typer CLI application, accept a path to a file, count the frequency
+of each word in the file, use open AI chat, rich print the frequency.
+So you can see here we're getting a little bit more detailed.
+We're setting up some more information for our reason model and for our AI coding assistant.
+Now let's talk about the implementation notes.
+This is where we can add detailed ad hoc information to let our model know specific details
+of how we want this code to be generated.
+We're saying don't import or suggest any external libraries.
+See our pie project file for our dependencies.
+So if we open that up, we already have our dependencies all set up here and we're going
+to add this file as context so that our reasoning model knows what's available.
+We have a comment every function implementation note.
+For typer commands, we want usage examples starting with UV run main since we're using
+Astro's UV as our Python package manager and then we have two additional implementation
+notes, right?
+Just kind of highlighting and guiding our reasoning model.
+So this is a place where you can add information and rules that you want your AI coding assistant
+to follow for this specific feature.
+Now let's talk about the context.
+Our context details are exact context window.
+So what files we're going to want in our context window during the beginning of the task
+execution and then the end.
+So you can see how this can be really valuable for the reasoning model.
+We're explicitly stating what files it will have available and then we're also stating
+what files need to be created by the end of the execution of this prompt.
+This is also a really important section because it helps you the engineer work through what
+you'll expect from the beginning to the end.
+So the last and most important section is our low level tasks.
+Let's go ahead and take a look at what this looks like.
+These are individual tasks broken up into a numbered list and guess what?
+Each item is a high level and a low level prompt.
+That's right.
+The spec prompt is effectively a set of directions followed by a list of prompts.
+This is an ultra important structure.
+If we look through this, you can see we have marked down formatted Aitor code block.
+So if we just go ahead and collapse all of these, you can see we have four Aitor code
+blocks and then one block of explicit Python code.
+So let's just talk about this block for a second because this is really important.
+This is where all the magic happens.
+We're taking everything we've learned and scaling it up by creating an ordered list of
+prompts.
+In this section alone, you can see everything you've learned so far is compounding into
+this powerful spec prompt.
+The huge breakthrough here is our reasoning model is capable of generating every single
+task we have here because it's iterating over the response that it's generating.
+Right.
+That's the big breakthrough with the reasoning models.
+It's running its own internal chain of thought, also known as a prompt chain.
+So a key aspect of the little level task is that it's ordered from start to finish.
+So why is it important that it's ordered?
+Order task lets us do a couple of things.
+They allow us to communicate the individual prompts and their outcome in a stacking compounding
+fashion so that we can refer to the content in previous prompts and later prompts.
+Let me show you exactly what I mean here.
+If we open up our step three, remember we create a word counter.
+We filter out some characters and then we limit based on threshold.
+If we open this and then we open up our data types, so if we open up step two and step
+three, you can see here we have this word counts, pedantic type.
+And in step three, we're explicitly referencing work done in step two.
+This is ultra important because we're now passing our information dense keywords.
+Remember this is a type information dense keyword.
+We're taking this word counts and explicitly using it in the return type of this function.
+So when our AI coding assistant is looking through this, when a reasoning model is working
+through this, it knows that our word counter should take in scripts, mid count threshold,
+and then return a word counts, which it's already seen.
+In this version of our transcript application, we're defining this type to contain our count
+to word map.
+And then we're specifying that type.
+Type based AI coding is a massive, powerful unlock.
+Data types, interfaces, classes are a fantastic way to communicate information to your
+large language model.
+As discussed in lesson three, these are information dense keywords, right?
+Types, functions, variables, files.
+These are all things that have strong reference points, strong locations, and strong meaning
+associated with them.
+Our ordered low level tasks allow us to communicate information across our prompts, right?
+Which of course is absolutely essential.
+So the second reason that these ordered low level tasks are important is because since
+we have explicit references to these, we can add the spec prompt file itself as context
+and refer to specific tasks.
+We'll see exactly what that looks like in just a moment here.
+This word count was defined as an explicit type.
+There is no confusion for the LLAM about where or what this thing is.
+This is the power of having a list of tasks that can be executed by a powerful reasoning
+model in order, thanks to our specification document.
+So if we just look at what's going on in each one of these tasks, all we need to do is
+look at the high level, we don't even need to look at the low level prompt.
+We're creating our common word blacklist, just as we had before, creating some data types,
+creating our word counter functionality, and then we're running our LLAM OpenAI chat
+call.
+And it's important to note, you don't need to write a prompt in every single one of these
+tasks.
+You can just place code, right?
+And this is something that's likely to happen as you're pulling in third party documentation
+or working on a feature, you'll be working with existing code.
+So whenever you need to, you can just drop in a block of code where we can still say
+as a comment here, you know, create this file, you have a nice simple low level prompt
+here, but then we're just referencing a block of code.
+So we have that as our fourth task, and then in our last task, we're putting it all together
+in our main file, right?
+So that's when we're actually going to be updating main and filling out all the content,
+all the code that was just generated.
+So without further ado, let's go ahead and fire this spec prompt off.
+So we can open up the terminal, let's go ahead and go to our context section to know what
+we need to add to our a coding assistant, and we're going to add main, and then we're
+going to read only add pie project, Tom, this has our dependencies, and this gives our
+reasoning model the information it needs to know what dependencies it has access to.
+And then finally to run this, we just literally copy our entire spec prompt and paste it in,
+and let's execute.
+Many models take some time to execute because they're, you know, air quotes thinking through
+the prompt, context, and the result.
+We can expect 20 seconds to a minute, depending on the size and complexity of the spec prompt.
+I'll cut here and we'll return when it's completed.
+Okay, fantastic.
+So we have a completion here, let's just go ahead and review our changes task by task.
+So as we start scrolling up, you can see our last task was to create the analyze transcript,
+function in main, and put everything together.
+So right away you can see this is done really, really well.
+This piece looks great.
+Let's keep scrolling up.
+You can see we're setting up a type or instance, and type or if it's a Python library,
+you can use to build CLI applications.
+So you can see step five, right?
+It's lined up.
+It's reasoning with our high level tasks and the code.
+So this keeps scrolling up here.
+You can see we have our step four, right, which is let me go and open up step four here.
+Let's look.
+Step four, creating our LLM function using the existing code block below without making
+any changes.
+And this is something that I explicitly added a couple of times.
+When you're referencing code specifically, it's always good to just say, you know, don't
+make any changes.
+Just use the code as is.
+So you can see here, still importing everything and it's using the, you know, structured
+outputs format from OpenAI.
+This is great.
+And if we scroll up, right, so that's step four, and we look at our word counter, right,
+so step three was our word counter filter out and limit by.
+So we can see that right here, right, we can go ahead and open up this prompt.
+You can see here, we're saying create this file.
+We're still using all of our great low level prompt information, dense keyword practices.
+So we have, you know, create, we have a file reference, we have a new function with parameters,
+with default value with a concrete return type that was specified in task two.
+And then we have, of course, our details, right, so we're still sticking to everything
+we've learned.
+We have locations, actions and details here in this great prompt and that generated the
+exact result we're looking for here, right, filter our common words from our blacklist.
+And again, our blacklist here, common words, blacklist, this is a variable information
+dense keyword that was created in step one, right.
+So in step one, you can see here create constants and then we're saying create this variable.
+And then in step three, we are referencing this variable exactly.
+So we're sticking to our great prompting practices.
+We learned in lesson three, we can see all that code is working there, filter, sort
+of descending.
+And then we return that actual object structure, right, this new work counts object structure.
+So that's fantastic.
+The reasoning model is doing a ton of work for us.
+If we look at step two, we are asking it to generate our transcribed analysis and our
+work counts for us, right.
+So these are our two pedantic types, detailed in step two.
+So this looks fantastic.
+And finally, step one, of course, just create our blacklist and we see this here.
+And you know, it was able to infer our dot, dot, dot and 50 more common words.
+So that's it, right, our reasoning model, the powerful O1 reasoning model, worked through
+a ton of changes for us, thanks to our detailed specification prompt, right, thanks to our
+detailed plan.
+And I hope you can start to see the value proposition of planning your work and handing
+it off to a powerful reasoning model.
+So we are in architect mode.
+So either to not just go ahead and make these changes, what's going to happen now is we're
+going to hit Y, enter, and now our architect is going to hand off this draft, every one
+of these draft changes to our editor model, which is going to be our cloud 3.5, so I'll
+hit yes.
+And we'll go ahead and let son it actually create these changes now, right.
+So if we open up our explorer, nothing's actually been done yet, right, that was just
+the code draft.
+Sonnet is going to actually edit these files and then ask us if it's okay to generate
+the files.
+So it's asking us to create our new constants file.
+I'm going to say yes, of course, data types, yes, work counter, yes, LLM, yes.
+Look at that.
+A five file, multiple edit just went through and we'll hit yes to all.
+And so now we have all these files in our context window, let's review the changes.
+So in the file explorer, you can see all those files exist now.
+You can see our main looks fantastic.
+Let's look at LLM.
+We have that exact code block we asked for data types.
+We have our two types, work counts, transcript analysis, constants.
+We have our common words, blacklist array.
+And then in word counter, we have our word counting logic, right.
+And of course, it returns just as we specified in our function definition.
+It has the exact definition we're looking for and the correct return.
+So our reason model in architect mode just did a ton of work for us.
+And I'm going to say something that might sound a little jarring or scary or exciting.
+This is a small spec prompt.
+This is a small plan.
+We're only asking for five changes.
+You can imagine you're working on a feature on a large production code base.
+This can easily be 10, 15, 20 code changes.
+Each one of them being their own great prompt, right.
+And that's that's an important piece.
+If you write a bad prompt here, the reason you model can and will make mistakes.
+In fact, with the spec prompt, you should expect to run another Aitor instance to clean
+up anything that needs to be changed.
+So moment of truth, let's go ahead and just try to run our generated code first try.
+So I'm going to open up a new terminal window here.
+And it generated example use docs for me.
+So I'm just going to copy this, paste it, and let's go ahead and run it.
+Okay, so we do have one issue here in our run command.
+We are expecting a main function.
+So we're going to boot up an additional Aitor instance.
+We're going to resist the urge to make the change manually.
+We really want to be making that mindset shift away from manual code changes.
+So we're going to run a new Aitor instance here with Aitor dashed as sonnet.
+This will automatically boot up Aitor with the cloud 3.5 sonnet instance.
+And what we'll do here is I'll just add main and I'll run a quick prompt.
+Create death main.
+So that's it.
+So we're running into a type error here when you only have a single type or method.
+You don't need to explicitly refer to the function.
+So we're just going to drop this and kick it off again.
+There we go.
+Minus a couple hiccups.
+You can see all the actual code, right?
+All the feature related code was generated perfectly.
+This was all thanks to our reasoning model looping through and thinking to the changes.
+Our specification document, which detailed everything we want done.
+And of course, our Aitor architect mode, right, which improves coding accuracy because
+we're running a powerful reasoning model to draft the changes and then a great base
+model to write the changes given the architects draft.
+So this is very powerful AI coding.
+Let's take a look at this main file.
+Look at how beautiful this code is, right?
+It's it's exactly how we asked it to be, right?
+It's exactly right.
+There's some small things, right, some missing imports.
+That's all small, simple things that traditional code tooling can handle for us.
+So let's finish out our transcript analytics application by writing another spec prompt
+by hand using a reusable template.
+So that's another advantage of these spec prompts, right?
+They have structure to them.
+They have format to them, right?
+There's a flow to these prompts.
+If we open up spectemplate.markdown, you'll be able to see a template of our previous
+file, right?
+So let's go ahead and just collapse.
+You can see just a clean template of everything we just did.
+So what we're going to do here is walk through making a couple additional changes to our
+transcript analysis application.
+If you remember, we were also generating charts and we were also generating an output
+file type.
+So we're going to go ahead and write a spec prompt by hand to generate that.
+So first thing I'm going to do here is copy the spec template and let's give it a name.
+So there's going to be transcript analytics, click V1 and that's fine.
+Okay, so we have this file now.
+So let's walk through this.
+Let's get another rep in so that we can really understand how powerful writing a detailed
+plan with a list of prompts can be when we hand it off to a powerful reasoning model.
+To truly master AI coding, you want to let your AI assistant do the work for you.
+All we're doing now is investing more time up front to communicate properly what we
+want done through a plan.
+Okay, so let's just go ahead and walk through this.
+So there's going to be transcript analytics and let me close our file explorer here updates.
+And we can go ahead and say chart and output file.
+Okay, and we have a little subcomment here.
+You can remove this if you want.
+I'm going to go ahead and leave this in and let's talk about the high level objective.
+Right?
+So now we're just filling out this spec document.
+So high level objective.
+We want to add charting and output file functionality to the CLI transcript application.
+Great.
+Now our mid level objective.
+Now we're going to go into detail a little bit more.
+Let me go ahead and collapse everything else that we're not working on.
+You know, we have our high level.
+We have our mid level.
+Let's just walk through this one step at a time.
+Writing these spec prompts, you know, should be simple.
+You should just be thinking through, imagining what you want to see.
+And then thinking about what you would want to communicate to not just the LLM, but
+to yourself if you were writing this or to another engineer, if you were writing a plan
+for them to generate the code for.
+So mid level objectives.
+You want to add a bar, pi and line chart capabilities, capabilities, and a new chart to
+be what file, add output file functionality to a new output file, .py file, exactly.
+And let's just keep going down the line here, add two new CLI arcs.
+And they're going to be exactly, yep, chart and output file to our typer method.
+Add a mid level, right?
+We're just kind of going in level in.
+So we're adding charting.
+Just adding a little bit more detail into how we're doing that with our mid level objectives.
+So let's go ahead with our implementation notes.
+So any technical details, dependencies, coding standards, and just other information, right?
+So this is where we can kind of be more specific.
+This is where we can guide our reasoning model.
+This is where we can be more prescriptive about minor notes or tweaks that we want our
+assistant to be aware of.
+I'll say use matplotlib for charting exactly.
+Be sure the output file uses the correct file extension output file options are, let's
+see us do a .txt, let's do a .json, let's do a .markdown and a .yaml.
+And then let's go ahead and specify our charts, chart types, let's go ahead and do exactly
+up.
+That looks great.
+And anything else we need to mention here in our implementation notes, I'll just say
+be sure to fill the low level task in order and in detail.
+So just gathering some more attention to our low level tasks.
+Context is important.
+So what's the context at the beginning?
+So what do we need to run this?
+I'll go ahead and drop all existing files just so we can get a full reset here.
+So we can rethink this.
+And we're definitely going to want our main.
+So I'll say, you know, beginning file, we want main, right, and it's going to do our
+full file extension here, just to be super legit about it.
+Quick tip for grabbing the file names in VS code.
+If you open up the main.py file, you hit command shift p and look for rel.
+So relative, you can copy relative path of active file.
+I use this a ton when I'm setting up context for eight or instances.
+You can copy this and then we can hop back to this file and just paste.
+Okay.
+So we want this added data types.
+So let's just go ahead and paste this again and then modify the file name.
+We want data types.
+Let's make sure we also have our pie project, Tom will file.
+This is, yep, it's going to be read only.
+We also don't need to make any updates to our data type.
+So we can just go out and make that read only as well.
+So I think that's it.
+This is why it's nice to, you know, write this top to bottom.
+We can kind of see and we can always be reviewing what we're trying to accomplish.
+You know, as we're thinking about our new charts file, right, our new charts.
+Python file, we can think what else do we need to have in the context window to accomplish
+that task.
+So that should be good.
+So in the end, we're going to have, of course, all of our previous files and a couple
+new files.
+Right.
+So we're going to have chart.py and we're going to have, we'll call this output format.py,
+right.
+And let me make sure that I update that here.
+So we're being consistent with our file naming.
+Okay.
+And so that's our ending context.
+We're working through the changes we want.
+We're adding detail.
+We're adding context, high level objective, mid level implementation notes and then context.
+And, you know, as we're kind of drilling down at the end, we're finally ready for a low
+level prompts.
+So let's go ahead and dig into this and let's think about the changes we need made for
+our low level prompting tasks.
+So we should only need a few prompts here.
+Let's go ahead and clear this out.
+Let's think through this.
+We're going to create our output format.
+So let's go ahead and just write that right create source.
+Let's go ahead and use some of this autocomplete.
+I am running get up copilot here for some auto completion help and I'm going to run output
+format.py.
+So we're going to create this file and what we want in this is our format functions, right.
+So we're going to pass in.
+We're going to say create a format as string.
+And I'm going to pass in our analysis, right.
+So exactly, yeah, we're going to pass in our transcript analysis.
+And in our previous version, we only pass this in.
+Let's also go ahead and pass in our word counts.
+And we're going to use our word counts type, right.
+And in fact, we're using both of our type.
+We have these available in the context window.
+This is really important.
+You always want to be thinking from your AI coding assistance perspective.
+That's exactly what we're doing here.
+So we have the data types there, then we're also going to specify the return type.
+So we want a string back from this.
+And that's it.
+We're going to hit comma.
+And you know, remember, we don't only want a text format.
+We also want JSON, markdown, and YAML.
+So we'll use our list continuation prompt pattern and just say format as JSON will drop
+a lot of the detail because we're just repeating here, right.
+And we can fall back on the language models, great abilities to pick up on patterns.
+So we're just going to start the exactly writing this as a list.
+You can see even co-pilot is picking up on the repetition that we're looking for.
+So this is great.
+We have all these methods.
+And I think that that completes our first prompt here.
+So after this runs, we'll have our output format accepting our transcript analysis and
+our word counts from our main file, right.
+So this is great.
+So let's go ahead, task two.
+This is our charts functionality.
+So we can go ahead and start writing this out, right.
+In this prompt, we want to create source spec base, right, and we're doing charts perfect.
+We want to create what we want to call this create bar chart.
+And we're going to pass in, of course, our word counts.
+Yep.
+So we're getting some nice autocomplete there.
+What we're going to do here is actually add some detail, right.
+So it's not just as simple as passing the method because we want to modify the behavior
+here.
+So I want to say horizontal, bar chart, descending top to bottom, so I want the higher
+numbers at the top, lower at the bottom.
+And then we want to bring back in that same core tile logic that we had before.
+So it's really important to dial in when you're writing your prompts, dial in to exactly
+what you want to see in this context.
+And by using this, you know, great coding prompt pattern of locality, right.
+So we're saying in this file, in this function, you can start to see how useful it is for
+dialing into one change at a time, being really specific with the changes that you want
+to see.
+Okay.
+So we'll continue here.
+And what we'll say is, what else we want?
+We want our top core tile, green, bottom core tile, short, red.
+And then we'll say remaining blue, right, kind of just as before.
+And now what we want to do here is we only want to save as, yes, short, save as PNG.
+Yeah.
+This is our bar chart.
+So let's go ahead and create two additional.
+So I'll say create pie chart.
+And we're going to use the continuation pattern here for our LLM to just pick up on.
+And I'll just say colon mirror, create bar chart exactly.
+And then our last one will do the exact same thing.
+So this is great.
+This is our chart prompt.
+So you know, oftentimes, right, when you're writing code, you're instantiating some pattern.
+And then you're just following that pattern in subsequent lines of code and subsequent
+files.
+So language models, a coding assistance, they're really great at picking up on these patterns.
+And the list syntax here and the mirror keyword allows to tap into that idea of patterns,
+right?
+So let's continue.
+That's all information we learned in lesson three.
+We're using information tense keywords to our advantage here.
+Let's go ahead and wrap things up.
+I've forgotten to write the high level task here.
+So let me just go ahead and add a high level, say what's happening.
+So create, output format functions.
+And then I'm saying, you have create chart functions, right?
+So this is just a super high level void of information, which is naming our task effectively.
+And then I'll say update main to use the new functions.
+Okay.
+And let's go ahead and write this last information tense keyword to drive things home.
+Things you were getting a nice autocomplete here from co-pilot.
+This looks actually pretty good.
+So again, I want to emphasize why we set up so many patterns in lesson three and lesson
+four, right?
+You can see even co-pilot is starting to mirror our behavior in this file.
+And that's what you want.
+You want to be setting up patterns for use so that every piece of compute, every autocomplete
+or every prompt, every coding assistant, they all start to understand the language you're
+speaking.
+Why?
+Because your language is consistent.
+Because your language is information rich, right?
+You can see it's picking up on similar keywords, right?
+Similar information tense keywords we have update.
+That's exactly right.
+We have add, right, chart and output file CLI args.
+That's great.
+And then we have use output.py functions, perfect, right?
+Use chart.py functions.
+Pretty good.
+Couple just tweaks here.
+I want to say and write to a extension appropriate file.
+I just want to be super clear about that based on, yeah, CLI arg.
+Great.
+So when you start setting up these patterns, you're starting to speak a reusable language
+that, you know, your computer, more specifically, language models can understand, right?
+And this is the power of consistency, it's the power of pattern recognition, and it's
+the power of, you know, information tense keywords.
+So you can see everything we're doing here stacking up, we're speaking the language of,
+you know, language models.
+So let's go ahead and fire this off quickly.
+We'll just review your context, make sure this all looks good, and make sure that we're
+being consistent with everything.
+Everything does look great here.
+So I'll just go ahead and copy everything.
+And let's add, let's set up our context, right?
+So we want to add main, and then we have two read only files, so we'll use aiders read
+only command to pass in data types, andpyproject.tomel.
+Okay.
+So now we have that, and you can see our end state is super, super clear.
+So the ending context is, you know, very well known.
+We can go ahead, and again, we're just going to copy everything, and paste it into our
+Aitor architect instance, using the O1 reasoning model, and Cloud 3.5 Sonnet as the editor.
+We'll hit enter, and let them do the hard work.
+It might seem like a disadvantage, having to wait for a reasoning model to return, but
+actually helps you think ahead.
+There's always something else you can be doing to progress your engineering, including
+writing your, you know, next specification prompt, or, you know, setting up your secondary
+assistant, like we can do right now, to get ready to iterate on whatever result our architect
+instance gives us.
+Okay.
+So we've got changes back.
+Let's go ahead and just review these changes, fairly confident in the result here.
+I'm going to hit yes, while our editor agent is making the changes, we can review.
+So yes, we'll have our editor start making those changes for us, and let's scroll to
+the top here.
+Okay.
+So it is executing things on a task by task level, just like we asked.
+So you can see here, create new file.
+We have our format as string with the exact parameters we specified.
+It's creating that great format for us, right?
+And it's inferring based on the types that it has access to, right?
+It knows what these both look like, and it's accessing all the right fields, right?
+Bulletpoint highlights, sentiment analysis, keywords.
+Okay.
+Format as JSON, right?
+It's a simple, you know, JSON dumps call happening here with a new combined set.
+And you can see here, our work counts is passing in our work counts dictionaries.
+So let's clean format as markdown, same deal here, format as YAML.
+And we do have access to YAML here, or a coding assistant can see this because it has access
+to our pie project file.
+We can go ahead and open that up, and you can see that right here, right?
+So we do have our YAML library, okay?
+And now our second step.
+So that was all step one, right?
+All that code was generated from step one.
+If we open up our plan and collapse, go to low, low, low tasks, and collapse all of these,
+right?
+We have three tasks.
+The alpha format was just one prompt, and look at what it did.
+Look at how great all these generations were, right?
+This is called scaling your impact.
+This is called truly tapping in to the abilities of the reasoning models.
+This is just one step, and it nailed it.
+So let's go ahead to step two.
+Now we're creating our chart methods.
+So you can see here we're pulling in Matplotlib.
+We have our core tile size, so we have the top bottom core tile.
+It's defaulting everything else to blue, it looks like.
+We might have some issues here we'll see, and let's go ahead and continue.
+So that's our bar chart.
+We also have our pie chart here, and we have our line chart.
+So that's good.
+That's step two, and then step three here, pull it all into main, add these two new flags,
+and then create our files, right?
+So you can see here if output file were then writing this.
+So this is interesting.
+So if we look at step three, okay, we are saying output file flag.
+So I gave it the wrong information here.
+I did just want to pass in an output type, but I did say output file, so that's what it
+gave me, right?
+So these are things that will just happen.
+This is fine too.
+We can specify an output file, and then it looks like it's looking at the extension to
+know which function to call.
+That's still great.
+I made a mistake there, right?
+So I made a mistake, it's still completed it insanely well based on my mistake.
+So that's fine.
+We can roll with that.
+And at the bottom here, we have our chart calls, okay?
+So this looks great, and then we have new usage documentation.
+That's great to see.
+And now we should have our creation statements here by our editor model, which we do.
+So let's go ahead and just approve these.
+So there's the output format.
+There's the chart.
+And then there's our three multi-file edits with our iter architect, with our spec document
+with the reason model, right?
+So this is really powerful stuff.
+I really hope you can see what you can do with this, right?
+These techniques can run on any code base you have, any single code base you have.
+It's all about putting together a great plan and using Ader as a powerful code editing
+tool, right?
+And to be clear, I know we're digging more into Ader specific things, but this architect
+model pattern is simple.
+If you have a draft prompt, and then you have an execution prompt, we will definitely
+see versions of this, variants of this.
+You can imagine a world where you have two editors, and then you have a lead engineer
+that then takes the best of both worlds, and then hands it to an editor.
+You can imagine you have an architect, an editor, and then a reviewer.
+You can imagine you have an architect, an editor, and then a critique.
+You can imagine you have this workflow run a couple of different variants.
+There are many ways to construct prompt chains and a coding agents to generate improved
+outcomes using a powerful reasoning model and then great base models like Claw, right?
+So let's go ahead and continue.
+Ader is just asking us a couple of extra things here.
+Do you want to add some stuff to the chat?
+We're just going to skip all that clear and let's review our changes.
+So we have chart.py, right?
+So this looks great.
+We have our bar chart there.
+We have our core tiles.
+I think the core tile logic might be a little off, but that's fine.
+We'll just go all over it.
+We have create pie chart, create line chart, and then we have our output formats.
+So we can go ahead and just collapse this.
+And you can see we have string JSON marked on the ML, just as we asked.
+And then finally in our read me, we have a couple new items here.
+And let's just go ahead and copy this and we do need to again drop the method name so
+we can just go ahead and drop that or we can keep it and just do this, right?
+Because basically, typer is just saying there are no other commands to run.
+So we can come in here and just say, um, tempo, go.
+So whatever.
+So now we can refer to typer with specific command names, okay?
+So this is great.
+So let's go ahead and just run this.
+We have default, Macon threshold 10.
+Let's browse through our code.
+Everything looks fantastic.
+Let's go ahead and execute opening up a fresh terminal here.
+We're going to paste this in and let's see what we get.
+Okay?
+We have an error here, string has no attribute, create pie chart.
+So we can just search, create pie chart.
+We have this chart, we're saying if chart, and we also imported chart up here.
+So simple issue, you can see we just had a, uh, important naming conflict.
+We're going to open up our base model, Adder, instant, and we're just going to quickly resolve
+this.
+So I'm going to hit add, we're going to update main and let's go ahead and add chart
+as well.
+I'm not sure we'll need it, but we'll add it.
+And all we're going to do is come back to this error, copy it, and we'll use the resolve
+keyword to go ahead and knock that error out.
+And these advanced racing miles will know exactly what's going on here.
+So it's going to go ahead and just change the name of that variable, right?
+Basically, we just had two conflicting variable names.
+So nice cleanup.
+Let's go ahead and rerun and we don't have chart.
+We now have chart type as was just updated.
+So let's go ahead and update this to dash type.
+If we search for chart type, right, this is our new keyword to prevent the chart naming
+conflict.
+So we'll hit enter here.
+Fantastic.
+So you can see we have our print, we have our analysis, we have pie chart saved, and
+we have output written to output empty.
+So let's go ahead and just take a look at that.
+Let's look at our output.
+And you can see here we're not only getting our transcript analysis.
+We're also getting all of our word counts in a marked on file.
+Looks great.
+And we also have a pie chart here.
+So you can see we have all of our words split out in a nice distribution.
+This looks great, right?
+So let's go ahead and run a couple more tests.
+Let's create a YAML file as our output.
+And I want to see that bar chart.
+I want to see our core tiles come in.
+So we'll go ahead and run this and let's see what we got.
+So we have our bar chart here and we have our YAML.
+Let's look at the YAML first.
+So this looks great, right?
+I love the YAML formats.
+Very readable while maintaining a lot of the JSON object structure nesting.
+And let's look at the bar chart.
+Wonderful.
+So the core tile logic is in there.
+Just as we asked, the top core tile is green.
+The bottom is red and the rest is blue.
+So there's a lot going on here, right?
+But this is beautiful.
+So that was maybe what, one or two follow up prompts with a simple base model.
+And two spec prompts using a reasoning model and the useful architect mode.
+Let's go ahead and close and just discuss what this all means
+and how this is valuable for your AI coding abilities.
+I know that this can seem like a lot.
+This is one of the techniques in the course that can take some time and effort
+to understand and use.
+It's critically important to take some time to understand and to write out spec prompts,
+right?
+This idea of planning your work and then handing that off to a powerful reasoning model.
+You want to spend time to understand and use this.
+You can also test architect mode with a variety of models.
+You can, for instance, run a cloud 3.5 sonnet as an architect and an editor.
+And you'll get some pretty great results.
+This will somewhat work.
+But it's important to call out that the reasoning model is particularly effective here
+for writing large scale spec files that make changes across multiple files.
+We're talking 5, 10, 20 plus files because it iterates.
+And it's looking at your contacts again.
+It's reviewing things you're asking for in implementation notes.
+It's reviewing the high level objective.
+It's looking through your low level prompts over and over.
+Reasoning models are particularly advantage to writing and generating massive.
+And I mean massive amounts of code.
+Like I mentioned, in both of our spec files here, if we open these back up, our first
+spec prompt was the largest.
+We're running 5 individual prompts.
+We're asking for 5 concrete changes.
+And our second one, we only have 3 changes here, although we generated quite a bit of code
+in each one of these methods, right, which is fantastic.
+Definitely copy the spec template from this course, from this code base, also add a link
+to your loot box, reuse this to generate new micro applications and to generate new
+features into existing code bases.
+As you use this, play with it, modify it at sections, remove sections.
+Remember the key is to create reusable patterns to best communicate with your AI coding assistant
+and your language model, so that you can get more done and hand off more work to them,
+to the model, to the AI coding assistant.
+This structure has worked extremely well for myself and for other engineers.
+So it's likely to work for you if you use it.
+The general flow for this new AI-powered development workflow is write your spec prompt, think
+through all the changes, fill out the context, think about the beginning and the end, go
+top to bottom here and then work through your low-level prompts.
+This is where you'll be spending the most time now.
+Expect to have to go in after the completion is ready.
+For now, as these reasoning models are still improving, expect to have to go back in, modify
+a couple of things, resolve a couple of issues you saw we had to add our main block back.
+We also had to fix a naming duplication, expect to have to come in and iterate a little bit.
+It won't be perfect, but in the process, as you write more spec docs, you'll start to
+notice something incredible.
+The spec will get you 80% of the way there, then it'll get you 85%, then 90, and then
+as you improve, as you learn how to write these information rich prompts in the right order
+with the right information, right with the right context, eventually it'll hit 100%.
+Once this happens to you a couple of times, you will have a massive aha light bulb moment.
+When you write the perfect spec prompt and the LLM interprets it perfectly and you make
+5-10-20 multiple edits all at once, that's the moment you transform into an engineer of
+the future.
+And I hope you can see how and why.
+After this lesson, I hope that vision is now clear.
+I hope there's a clear path to you getting to that place because that's the next step.
+You need to get to that moment where you generate massive amounts of code with the right plan.
+Now I recommend you take a break from this course and practice everything we've done so far.
+In lesson 6 and 7, we're going to once again take everything we've learned and scale it up
+even further.
+We're going to add a new dimension of AI coding that enhances your output across code bases
+by eliminating entire classes of engineering work entirely.
+In our next lesson, I'm going to share Adder's secret and we'll put it into practice to change
+the way you engineer once again.
+It works here in lesson 5, takes some time to digest and lets your engineering mind shift
+around this new way of writing code with AI.
+Now the plan is the prompt and great planning is great prompting.
+I'll see you in lesson 6.

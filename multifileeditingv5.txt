@@ -1,0 +1,740 @@
+Welcome to Principled AI Coding.
+This is lesson two.
+You've learned the fundamentals.
+Now let's progress to the next level of AI coding with multi-file editing.
+AI coding across multiple files is a no-brainer must have necessity for efficient engineering
+in the age of generative AI.
+In this lesson, we're going to build on the fundamentals so you can quickly create
+and modify files across your codebase quickly and concisely.
+Before we dive in, let's establish the key principle behind this lesson.
+Big three bulls-eye.
+What does that mean?
+At the heart of every AI coding assistant, there are three vital components that make the
+magic happen, context, model, prompt.
+We're going to refer to these as the big three.
+Answer these three elements and you'll unlock the full power of AI coding for today's
+tools and tomorrow's tools.
+Great AI coding comes when you take the big three context, model, and prompt, and consistently
+intersect them like your throwing darts and you want to hit the center where you give
+just enough context, select the right model for the job, and design the right AI coding
+prompt.
+When you line these three elements, you'll know it because moments after you send your
+prompt, your code will update and just the way you wanted.
+The magic happens at the intersection, the sweet spot where the context, model, and prompt
+work together seamlessly.
+This is the bulls-eye and with every prompt you write, you want to be striking the bulls-eye.
+As we mentioned, a big challenge with AI coding is that it's easy to get started and it's
+hard to get more done over time.
+That's because each of these three elements have to be selected properly to maximize
+efficiency.
+If one is wrong, for instance, if your model is not powerful enough, it doesn't matter
+what context or what prompt you have.
+You'll run into issues.
+The same goes for your prompt and the same goes for your context.
+If one of these are off, your coding assistant will not generate the code you're looking
+for.
+Throughout upcoming lessons, we'll discuss how to select the right model and build great
+AI coding prompts.
+But in this lesson, we're focusing in on the context.
+On top of the kiss principle, keep the big three bulls-eye principle in front of your
+mind as you're writing code with AI, with each prompt, imagine you're aiming for the center,
+the bulls-eye.
+Now, let's turn this principle into practical AI coding actions with a focus on context
+management.
+Let's continue from our previous application from lesson one.
+I'm going to open up the terminal.
+If I type LS, you can see we have our previous lesson one code base there.
+Check your loop box below for the Git clone command for the lesson two code base.
+I'll clone that in now with Git clone and then I'll paste in that URL.
+Great.
+If we clear an LS, we should see that next code base.
+I'll CD into the second principle AI coding code base.
+Type LS.
+I'm going to use code dot for VS code.
+Now, you should see a similar code base with a couple changes.
+I'll open up the terminal here with command J and now we're going to run some setup.
+So if you open up the readme file, you should see a couple of set up instructions.
+I'll run UV sync.
+UV is a modern Python package manager.
+We'll be using this moving forward since it makes Python dependencies easier to work with.
+Details on this tool will be in the description, but from lesson one, you should have this already
+installed.
+I'll go ahead and sync.
+This will install all the dependencies needed.
+I'll clear now we're going to copy this dot m dot sample into a true dot m file.
+So I'll just type CP dot m tab, the auto complete and then I'll type dot m.
+So now this will copy this into a new dot environment file.
+Now go ahead and paste your open AI API key.
+We're going to be using this to run a prompt in our transcript analytics application here.
+So I'm going to go ahead cut the video, paste this in here.
+Remember, you don't want anyone to see your API keys.
+Now you should be able to run UV main.
+So go ahead and kick that off.
+I'll type UV main.
+And as you can see, we have the previous generation from our lesson one code base, outputting
+the exact same output.
+So if we clear that, UV run main is the equivalent of running Python.
+Remember, we're using the UV package manager details in the description.
+If you want to read more into UV, but moving forward, this is what we're going to be using
+to run.
+So I'll clear and now let's go ahead and open up our main file and you should recognize
+it.
+This is the exact same code from our lesson one.
+We're going to be building upon this.
+And now that we have all of our dependencies installed, let's refocus on our main file.
+Everything we do as engineers is about moving toward an end state.
+It's all about the value you're adding to the applications you're building.
+It's never been more important to be 100% clear about what you want to build.
+Because now you can delegate that work to your AI coding assistant.
+Let's go ahead and make a simple checklist of what we want to accomplish and why it's
+valuable.
+First we're going to do here is update the application to pass in a path to a transcription
+file as a CLI argument.
+So that means that when we run UV run main, we want to be able to pass in a path to a file
+instead of having our transcript.txt hard coded.
+That's valuable because it allows us to run our transcript app on any file.
+First we're going to add a blacklist so that we only count useful words.
+This way we can filter out words.
+Let's go ahead and run our program again.
+This way we can filter out words like two of you a can.
+These are all really low value words, right?
+When we're doing transcript analysis, it isn't useful to see these words.
+So the blacklist is valuable because it allows us to get rid of these noisy low value words.
+After that, we'll add a call to the OpenAI API to enable a quick summary of our transcript.
+We're going to get a couple things.
+From our OpenAI API call, it's going to run a large language model.
+And then we want to generate a quick summary, bullet point highlights, and a sentiment analysis
+of the transcript.
+We also want to extract some of the keywords from our frequency analysis.
+This is valuable because it makes it easy to understand and consume content in the transcript
+at a deeper level very quickly.
+So let's go ahead and walk through each one of these changes with our new AI coding superpowers.
+Remember, keep it simple and focus on doing one thing at a time.
+This way we'll work our way up from the fundamentals to more complex AI coding tasks.
+Let's go ahead and open the terminal, clear, and let's boot up Aitor.
+So I'll just type Aitor.
+And just as before, I'll hit slash add.
+And if we just type main, we'll see Aitor autocompleteing the path to our new main file.
+We'll add that.
+Now let's go ahead and run our first Aitor coding prompt.
+We want to update main to accept a new CLI argument transcript file.
+So I'm going to type literally that in natural language here.
+Update main to accept a CLI arg transcript file.
+CLI is command line interface and arg stands for argument.
+These are common short names that the large language model already knows about.
+It's important to call that out.
+Let's go ahead and fire this prompt.
+And you can see Aitor automatically writing this code for us.
+It's now parsing out the argument.
+And now that's getting used here args dot transcript file.
+It's asking if we want to run Python with the transcript file as an argument.
+We're going to type D, which stands for don't ask again.
+Remember, we're using UV main to run our program now.
+So we'll just hit D and now it's asking if we want to add transcript to the chat again.
+We'll hit D so that it doesn't ask us again.
+We'll clear the input.
+Now we'll manually run this so that we validate that our AI coding assistant made the right
+changes.
+I'll open up a new terminal window in VS Code.
+You can do that with command shift J. And now I'll type UV run main.
+If I hit enter here, you'll see that we now need a transcript file.
+So all run UV run main.
+And then I'll give a path to a transcript file.
+If we look at the directory here, we have two transcript files in the code base.
+And we can now run both of these and any other transcript file you want to add.
+So all run transcript.txt that got kicked off just as before.
+But now our program is dynamic.
+So if I hit up and change this to transcript to we get a completely different result because
+we have two transcript files here.
+So this is incredible.
+Well, let's go ahead and make our first multi file edit.
+We're going to ask Aitor to move our parsing logic, which is this code here, into a separate
+file.
+So we're going to do that with another a coding prompt.
+And we'll save this move CLI arg parsing into a file next to main.py called arg pars dot
+p y.
+Okay.
+So this is important.
+Let's just walk through this prompt.
+We're using a move keyword here.
+This is important.
+CLI arg parsing.
+So we're specifying what we're saying.
+We want to move it into a file next to main dot p y called arg pars dot p y.
+We'll go ahead, fire that off and let Aitor do the heavy lifting for us.
+Okay.
+So you can review the changes right at the top here.
+We see we're now importing.
+We now have this brand new file here right next to our main file arg pars dot p y.
+That looks good.
+Now Aitor is asking us explicitly, do you want to create this file?
+Well, of course, say yes.
+This is really cool.
+Now Aitor is saying we've applied edits to both of these files to edits in one shot.
+And now we have another file added to our context window.
+So this is really interesting, right?
+Let's go ahead and clear and let's review these changes.
+So now we have this function parse arguments.
+And if we dive into this method here, you can see we have a brand new file right next
+to main.
+And it's doing the exact same thing, right?
+So this is why the move keyword was important.
+As you write code with AI, you'll find certain words are very, very useful.
+I convey specific actions to the a coding assistant and to the LLM.
+We'll dive more into those in our next lesson.
+But for now, this looks great.
+And you can see here we have two files in our context now.
+We have arg pars and we have main.
+Now Aitor is explicitly looking at these two files.
+Let's go ahead and make another change.
+We have this min threshold variable here with a default value of three.
+Let's go ahead and make this also a command line argument.
+That way we can dynamically limit the words that show up in our word counter.
+So to do that, we'll just say move.
+And now I'm going to explicitly specify this variable name.
+So I'll say, I'll go and just paste this in.
+So move min count threshold into parse arguments.
+This is another really important thing.
+So if we look at this file here, there's an explicit function named parse arguments.
+So I'm explicitly calling out two different pieces of state in our program.
+This is a variable and this is a function.
+And I'm saying move the variable into the function embedded in this information.
+This is really important to call out embedded in this information is the location of these items.
+We know that these items are both inside these two files.
+And there are no duplicates anywhere of this variable name and this function name.
+So we can be confident that our AI coding assistant will locate and move these files properly.
+So I'll go ahead and write that and then we'll add one more thing.
+We'll say default three, right?
+Because we still want to have a default value.
+We don't want to specify this variable if we don't have to.
+So we'll go ahead and fire that off.
+Wonderful.
+You can see we have the applied edit to both these files.
+We're going to hit D and let's go ahead and review the code quickly.
+Same kind of deal here.
+We have arg.
+You can see that our main count threshold is now part of our argument look up, right?
+So if we just search this, research args, you can see that that is right there.
+It's going to activate regx search.
+So you can see that we're now fully relying on args for both our transcript file
+and our main count threshold.
+If you go into arg parse, you can now see Aitor created this variable for us.
+It's parsing this out of the command line argument.
+And it's giving us a default value here.
+So we'll go ahead, open up the terminal, clear.
+We'll type UV run main.
+And you can see here we have an issue.
+In order to fix this, I'm going to introduce you to a new command.
+So let's go back to Aitor and let's go ahead and type the slash run.
+So this is a really important command.
+This allows you to effectively run any shell command inside of Aitor.
+After this runs, the output is going to be directly appended right back
+to Aitor.
+So slash run.
+And then we'll just go ahead and type UV run main.
+So you can see there we have the output of the error.
+And now Aitor is asking us do you want to output this to the chat?
+The chat is the context of the entire conversation set we're having.
+We're going to hit yes.
+And this is going to allow Aitor to automatically fix the issue for us.
+If we opt back to main, you can see it added this dot for us
+so that we have the correct relative import.
+A quick tip here, you can hit control Z in a file to undo the change Aitor just made.
+So if I hit control Z, you can see that dot was all that was changed in this file.
+Right.
+And so I can control Z and then control shift Z to redo.
+So this is great.
+Now Aitor's asking if we want to actually run this command again.
+I'm going to hit no this time.
+Switch back to our other terminal window and then type UV run main.
+It looks like everything's working.
+Now we just need to add our transcript file.
+So we'll hit UV run main and then transcript two.
+So if we kick this off now, you can see our programs working just as before.
+We can rerun this with transcript one.
+And you can see that that works great.
+Now what we can do here is it's going to enlarge this a little bit.
+Now we can go ahead run this again and also specify this command line argument.
+So what do we have here?
+We have men count threshold.
+I'm just going to go ahead and copy this.
+And if we paste this and we'll say eight.
+So kick this up to eight.
+Now we're only getting the words that have more than eight frequencies in the transcript.
+Right.
+And we can easily tweak this.
+We can go ahead and bump that up to 12.
+And you can see all the words up from here.
+And we can go, you know, it's high as we like here.
+So if we say 20, we're not only getting the, you know, very top results.
+So that's awesome.
+That work.
+We did a couple things there.
+We had our AI coding assistant add men count thresholds here.
+And we also had ater automatically fix this import.
+We definitely should have named arg parse something a little different since there is the
+standard library arg parse package.
+But this is totally fine for now.
+So let's go ahead and refocus on a few commands that can help you manage the context of your
+files.
+If we switch back to ater, clear the input and type slash.
+You can see a whole list of commands here.
+We've only been looking at add and just recently run.
+Let's go ahead and look at another command here called drop drop allows you to remove files
+from your context window.
+So if you run drop by itself, this will clear every file from ater's context window.
+So now ater is effectively looking at nothing.
+We can go ahead and type slash add to go ahead and add our main file back if we just type
+main.
+You can see that we're getting some nice autocomplete from ater.
+These are the two most important commands by far that are important to keep front of
+mind.
+You want to be dropping specific files that don't help you in that aren't relevant for
+the task you're trying to complete.
+And then you want to be adding files that are relevant for the task you want to complete.
+So just as an example, we'll go ahead and add our arg parse once again.
+And then we can slash drop.
+And if we just start typing arg parse, we can remove the arg parse file.
+So these are really, really important.
+This is context management.
+You don't want your arg coding assistant looking at files.
+It doesn't need to execute your prompt and help you accomplish your task and your goal.
+Remember the bullseye.
+You want to be hitting the center of the bullseye with the right context, the right model,
+and the right prompt.
+We're going to be talking about the model in future lessons.
+And in our next lesson, we're going to be focusing on writing incredible prompts.
+But for now, it's all about the context window.
+There are two more important commands I want to share with you here.
+Let's go ahead and look at the slash tokens.
+So slash tokens gives you a rundown of the total tokens inside your context window.
+You can see here we have system messages.
+This is just built in.
+There's nothing we can change about the system messages.
+But then we have a couple interesting variables that we do have more control over.
+We have the chat history and our main file.
+And you can see here, Ader says, you know, you can use slash drop to remove this.
+And you can use slash clear to reset your chat history.
+So let's go ahead and try that out.
+We'll type slash clear, hit enter, and then slash tokens again and I'll enhance my window
+here.
+So you can get a full view.
+And you can see here before we had 1000 tokens in our chat history and now that row has
+been completely removed.
+This is a great way to monitor costs.
+You can see previously our chat history consumed, you know, a fourth of a cent.
+So this is not a huge deal by any stretch of the imagination.
+You can also see the model that you're using here.
+You might be using a different model, maybe using an anthropic model or a future GPT
+version.
+Whatever you're using here is totally good.
+We'll dig more into models and which model you should be using for the job you're trying
+to accomplish in future lessons.
+But for now, it's important to learn that you can use slash tokens to see your current
+token usage.
+And you can see we only have one file here.
+Again, if we were to slash ad and then pull back in that arg parse and then type slash
+tokens.
+You can see we now have two files in our context window.
+This is something that is going to be important to manage.
+I do just want to highlight.
+You want to be spending money to save time and the age of generative AI is important
+that you move as quickly as you can, get as much as you can done and go ahead and spend
+the few cents, the half dollar, the couple dollars that you need to on a day to day basis
+in order to move at light speed.
+As we'll talk about in future lessons soon, there will not be another choice you will
+need to be using these a coding tools.
+I'm glad you're here and you're making the right move by getting ahead by focusing on
+investing in yourself.
+So let's go ahead and continue our multi file editing.
+Now let's go ahead and add a blacklist.
+If you remember here, if we run our program again, we have a bunch of words that don't
+provide a lot of value for us.
+In particular, it's the common English words, right?
+And the two of these are words that aren't important for transcript analysis.
+So let's go ahead and add a blacklist, which will filter out these words for us.
+We'll run this prompt.
+I'll say create constants.py.
+Next to main, add a word blacklist, some specifying a variable here, word blacklist.
+And we'll go ahead and use the var keyword after that.
+So it knows it's a variable based off transcript dot txt.
+So I'm going to mention this file here with words like two and the ETC, then filter out
+words in main, okay?
+So let's go ahead and just run through this prompt again.
+Let's walk through what we're asking for.
+We're saying create a constant file next to main.
+Okay.
+So we're going to create a new file next to main.
+Adder can see the main file.
+So it knows where that is.
+We're saying add a blacklist variable.
+And we're saying based off transcript dot txt.
+With words, likes or, you know, specifying a few words to give Adder a pattern to look
+at.
+We're saying then filter out words in main.
+So inside of the main file, we're saying use the blacklist to actually filter out words
+here.
+Okay.
+So let's go ahead and kick this off.
+We can quickly review the changes.
+We have this word in blacklist check, we're importing our new file.
+And then we have our new constant stoppy file with the word blacklist variable.
+I'll go ahead and hit why you can see there once again.
+We have two files getting edited and now we can review our changes here.
+So we now have this word blacklist.
+And if we go ahead and open this file up, you can see we have a new constant file that
+was created.
+So now we have three files and all three of these files are now in our context window.
+We have two and the end of so on and so forth.
+And if we look at main, we're now continuing if the word is in blacklist, right?
+So word in blacklist.
+And this is a set.
+So there are no duplicates here, which is really nice.
+So if there's a word in the blacklist, we're just going to continue.
+We're going to completely skip over it.
+Right.
+So let's go ahead and run this again.
+We're going to just hit up.
+We'll run with a men count threshold 10 and we'll run on the transcript file.
+We'll hit enter.
+And now what we can do is if we look for the, which previously was our most popular word,
+you can see the is no longer in our list, right?
+The is filtered out and is filtered out.
+Many things are filtered out of our list.
+We can easily come in here and modify our blacklist and make tweaks to it.
+So that'll be filter out additional words.
+If we go ahead and run this on our transcript to file, we can get a different set of results.
+We're going to go ahead and drop men count to five.
+If we look through this, we can see a couple of things, right?
+So it looks like our threshold is working great.
+And we are still filtering out all those items.
+But there are some other items that we might want to add in the future.
+Now we have a simple system to quickly add and modify items in the blacklist.
+One more change.
+We want our AI coding assistant to make.
+We do have these trailing items.
+We're using a simple split method here, which just separates the transcript by a space.
+This is the default parameter for split.
+So what we want to do is strip the kind of ending punctuation, the question marks commas,
+so on and so forth, right?
+So we're just going to run another simple AI coding prompt to do that for us.
+As you're gaining abilities and improving your AI coding skills, resist the urge to make
+code edits by hand.
+If you've been engineering for a year or five years, ten years, whatever it is, you
+know that you can just quickly come in here, you can hit dot and then you can just run
+the strip.
+I really want to urge you to resist all desire to change the file manually by yourself.
+This is going to help you transition faster into using AI coding tools.
+Every AI coding prompt, every change you need to make is an opportunity for you to hone
+your abilities.
+This might seem like a silly thing to do for such a small change, but this adds up over
+time.
+Also another great place to practice our context management.
+We don't need our art parse or constants files anymore.
+So we can just say slash drop and then I'll pass an art parse and I'll also pass in constants.
+Okay.
+So we're going to drop both those files.
+You can see those removed from the chat.
+And now we're just operating in our main file.
+I'll hit control L, clear the chat.
+And now I'll run update word dot lower, so I'm being really specific about where this
+changes strip and then I'm just going to add a list of items, right?
+So I'm just going to say strips dot comma exclamation and what else do we have in our output there
+that we might want filtered out?
+I think that looks good, right?
+So we'll just start with these items and we'll just fire that off.
+Okay.
+So really simple prompt, really simple fix.
+You know exactly what it's going to do.
+This is also another great way to practice AI coding when it's a simple change.
+You know exactly what should be changed so you can quickly and easily validate that
+it works.
+Okay.
+So we're going to just hit up.
+Run this again.
+And now you can see we have just peer words in our list here, which looks really great.
+So our blacklist is now working and it looks great.
+So let's move on to our next task.
+Now if you have a grasp on multiple editing, let's go ahead and make a more interesting
+change.
+Let's add summarization and some minor sentiment analysis to our transcript analysis
+application by running an open AI API call.
+The first thing we need to do here, since we're going to be using the structured outputs
+API, and we'll dig into what all the stuff means in a moment here.
+The first thing we need to do is create a new typing style where we can store the type
+that we want our request to respond in.
+What we'll do here is run this prompt, create data, type stoppy, again, I'll say next
+to main, just to make it easy to specify where I'll say use pedantic.
+And if you open up thepyproject.tomel, you can see we have open AI and pedantic as dependencies.
+So I'll say use pedantic add and now I'm going to specify a type that I want created.
+So I'll say transcript analysis and I'm going to pass in base model here inside the parameter
+so that it knows what I'm building here is a pedantic class object.
+And then I'm going to use an interesting pattern here in curly brackets.
+I'm going to specify the fields that I want inside this type quick summary, bullet point highlights,
+sentiment analysis.
+Okay, so those are going to be the three variables we want.
+This looks great and it likely doesn't need any improvements, but we can still make it
+a little more accurate by defining and giving the LLM some hints about what we want the types
+of each one of these variables to be.
+So I'll backtrack a little bit and move to quick summary and I'll just say STR, right?
+We all know that sounds for string.
+And for the bullet point highlights, I'll also say STR, but then I'll specify it as a list
+with the square brackets.
+And then sentiment analysis is of course just a string STR.
+Okay, so now we'll hit enter here and we'll let Ader generate this for us.
+Go ahead and create file, yes.
+Once you install, we'll go ahead and skip this.
+We already have that installed and now we should have a new file, data types.py,
+with the exact typings and imports that we need.
+Open can kind of see the power AI coding.
+There are no limits to the scale in which you can run this, right?
+It's really only limited on the imagination of your prompts and the power of your model.
+But we could have specified many more fields, several additional classes, so on and so forth.
+Let's go ahead and keep moving.
+We now have this type that we can use for our OpenAI API structured outputs call.
+Now that we have this type, we can go ahead and add our OpenAI large language model call
+on this transcript file.
+So how are we going to do that?
+Let's go ahead and open up some documentation here.
+A really powerful way to utilize a coding assistance is by providing them with examples.
+So we're going to do exactly that.
+I have the OpenAI Python repository open here.
+I'm going to go to examples and then if we look at parsing.py,
+we're going to see an example of how we can utilize OpenAI's structured outputs.
+You can see there, they have the exact same pattern we have.
+They have a pedantic base model class built out.
+And then they're just passing it here as a response format in their completions.parse API call.
+So we're going to do here as copy this code example.
+Come back to Aitor and then we're going to write this prompt.
+Create LLM.py, again, same pattern, next to main, create def, analyze, transcript.
+And then as a parameter of this method, we're going to pass in transcript.
+Now this is where things get interesting, right?
+You can see here I'm writing a function definition, kind of a function prototype.
+I'm going to use the Python return type and specify our new type.
+Aitor can see our type there.
+So I'm going to hit down and allow an autocomplete.
+I'm going to hit dot.
+And then we'll say use this code as an example, okay?
+And then I'm just going to do colon and then I'm going to paste the code example from the
+OpenAI website.
+Okay?
+So I'm going to hit enter here.
+And Aitor is going to analyze what we've asked, pulling the types, ask to create LLM.py.
+Of course, we'll say yes, you can see that file got generated here.
+We're going to skip the installation commands where I have that installed.
+We'll hit LLM and you can see basically without flaw.
+We have our transcript analysis type getting imported perfectly.
+We have our LLM right next to main, just as we asked.
+And now what we can do is ask Aitor to just call analyze transcript inside the main file.
+It's also important to call it.
+We could have done that in this previous prompt, but that prompt was a little loaded and
+it's good to simplify things and do one thing at a time here, right?
+Remember to keep it simple, especially as you're learning, we're going to be running larger
+prompts that operate on five, 10 plus files throughout the course.
+We're now we're starting small, we're moving fast, and we're getting things done.
+All right, so we're going to run another prompt.
+Again, we can quickly just check slash tokens to see how we're doing.
+We're almost at one cent per prompt, right?
+So this is no problem.
+These costs are well with then, you know, what we're willing to pay to just move quickly
+and get things done.
+So we're going to have in clear, we can see our three items in the chat.
+And now we're just going to say add analyze transcript.
+You can see Aitor with the autocomplete.
+It can see this function to main.
+Of course, it's going to be our main.
+Up UI file run and print after we'll say after keywords.
+Okay, so our keywords are running here.
+We want to run the result of this after keywords.
+We'll just hit enter here.
+We're going to get that import automatically.
+Aitor's going to write this down here and set everything up to make it happen.
+Right?
+So this is awesome.
+Go ahead and hit skip again.
+I'll hit D.
+And now you can see, right?
+We can just go ahead and review this code.
+We progress through our lessons together.
+I want you to think of yourself more as a code reviewer and a code curator and a code
+delegator, unless the programmer actually writing the code, right?
+We're delegating the code writing to our AI coding assistant.
+This is a mental shift that it's important to make.
+Okay, so this looks good.
+We now have our prints here and then we have our analyze transcript and print results
+at the bottom, just like we asked for, right?
+So we'll go ahead, open up the terminal.
+And we'll kick off this once again.
+We'll run this on transcript to kick that off.
+You can see we first got our prints from our word counter.
+And now we have our analysis from OpenAI's large language model call.
+And let's go ahead and just look at that again for a second, right?
+We can see analyze transcript.
+We pass in the transcript.
+And now we're making a call to GPT 40 with the transcript.
+And our AI coding assistant automatically recognized the pattern from the documentation.
+It just tweaked it a little bit for us, right?
+So now it's going to respond with our transcript analysis type.
+And it passed in the system message.
+You are a helpful assistant analyzing transcripts.
+And then it went ahead and parsed that properly for us, right?
+It looked right at the documentation and it got us the exact result we're looking for.
+So if we look at our results again and just look at what we have here, we can see the
+transcript analysis, quick summary.
+In this video, we need to have Dan discusses the significance of OpenAI's O1 reading models.
+Perfect.
+Bullet highlights.
+And you can see here we have a nice set of bullets.
+This is of course a transcript on a YouTube video that we put out on the O1 reasoning models.
+So we have the bullet points there.
+And then of course we have the sentiment analysis, right?
+So the sentiment analysis is positive and enthusiastic.
+Really great job if you made it this far and you're following along, we're getting a lot
+done and we're utilizing, we're leveraging AI coding assistants to make it happen.
+Plan your tasks, understand the value of every task so that you can hop into your AI coding
+assistant and run your prompts back to back to back, review, validate the code and then
+you can ship the feature, okay?
+So we're going to do one more thing here.
+You may notice inside of our prompt here, you can see we're only passing in our transcript.
+So I want to make one more tweak here.
+Let's go ahead and add our word counts, right?
+We have these frequency counters that can be useful for our OpenAI API call.
+Let's go ahead and add this as a variable to this method.
+And let's go ahead and tweak our analysis response to include keywords, right?
+So it'll basically be a keyword analysis of one of these transcripts, right?
+So it'll tell us, you know, what are the most important keywords?
+And this will be useful for things like SEO keywords for trend analysis, so on and so
+forth, right?
+So let's go ahead, pop back to Ader.
+We have everything we need to run this.
+We can run slash tokens just to check on our context window.
+We're running at one cent of prompt, no problem, clear.
+And now we'll run this prompt.
+So we'll say update transcript analysis, right?
+So that's going to be our data types.
+We're saying update our data type.
+And then I'm going to say colon, add keywords, colon string.
+And then we're going to do a race and tax rights.
+We're saying add a list of strings as a new variable to this class.
+I'll hit dot here, update, analyze transcript, the method, right?
+So remember, this is a method if we hop back to lm.py.
+We're explicitly referencing a function, which also gives a location.
+And I'll just say pass in and use word count.
+And again, word count is a variable that we have that Ader can very clearly see, right?
+There's only one word count.
+That's really important to make sure you don't have any duplicates across your files,
+which eventually you will.
+We'll discuss solutions for pinpointing variable names and function names
+when you're operating in 10, 100,000 plus line code bases in future videos.
+And then we'll say update main.py, print keywords.
+So we also just want a list of the keywords that are now going to be added
+to our open AI analyze transcript API call, which is based off our initial word count.
+And then we're going to update main.py and just print those, right?
+So we've listed everything out in detail.
+And now you can see one by one, those changes happening perfectly.
+So this is really, really cool here, right?
+AI coding assistant is editing three files.
+Like I mentioned, there is no limit to this.
+Your AI coding assistant will update as many files as you can make clear needs to be edited.
+Okay, that has major implications for software engineering.
+That means that again, think of the Venn diagram.
+That means that if we pass in the right context, the right prompt,
+and we use a powerful enough model, we can edit five, 10, 20 files.
+And in this course, I'm going to take you to the edge of what is possible with these tools.
+And then you're going to take it even further beyond.
+Okay, but let's, let's come back to Earth, right?
+We're just on lesson two, let's slow it down.
+And let's go ahead and just quickly review our code changes here.
+In our main file, we now are looping over our keyword analysis.
+So that looks great.
+If we go to data types, you can see we now have that keywords variable added
+just as we requested.
+If we look at LLM, we're now passing in that word count.
+And our assistant automatically updated our open AI call here with the transcript
+and the word counts.
+Okay, so that's really important.
+And then if we hop back to main, we can see that analyzed transcript has word count passed
+in. We have the print.
+Let's go ahead and run.
+We're going to do the same thing.
+We'll run this on transcript two and we'll bump up our min count threshold to 15.
+Excellent.
+So this application is becoming useful.
+We have our cool kind of simplistic word frequency counter.
+We then pass that information to an LLM prompt where it's generating a quick summary
+for us, we're getting a bullet point highlight.
+We're getting a sentiment analysis to understand the overall mood and narrative of the video.
+And now we have our keywords, right?
+If we search something like O1, right, which is part of one of our big keywords,
+you can see in our word counter, that's one of our high count, high hit words.
+This is incredible, right?
+We've done a decent amount here.
+This is multi file editing with AI.
+We're now moving ourselves up the stack in the age of generative AI with AI coding assistance.
+It's important to think of yourself as a code reviewer and a code curator that approves
+and rejects code generated by your AI coding assistant.
+You're becoming an AI powered engineer.
+Now, the best part about software is that it's fully reusable.
+So we can go ahead, we can just hop in here, we can change this to any file, and remember,
+you can grab a transcript from wherever, you can run YouTube download, you can execute
+this anywhere you want, and then run your new application here, right?
+And now we have a full transcript analysis, bullet point summary, sentiment analysis,
+and some important keywords.
+This is really cool.
+This is really powerful.
+Using this code base up, while getting practical experience with AI coding, we reviewed the slash
+ad command, the slash drop command, let's go ahead and clear our chat window here.
+We reviewed the slash clear, and also the slash tokens command, right?
+So I just cleared and dropped everything.
+So there's nothing in our context window currently.
+And we also looked at the slash run command that lets us run arbitrary shell commands inside
+of Ada, allowing the response to be added to the chat window.
+So we're building up what we can do with our AI code tooling.
+The most important commands here are the slash ad slash drop slash tokens and the slash
+clear.
+We're going to be diving into additional commands and upcoming lessons.
+But these are the most important for by far.
+We dove into the big three bulls eye principle.
+You want to be keeping this imagery in your mind as you progress in your AI coding journey.
+Imagine the Venn diagram where you have your context, your model, and your prompt, and
+you always want to be hitting the center of this bull's eye.
+Just enough context, the right model, and the right prompt.
+You don't want a model that's too powerful and that runs too long and is overkill for
+your use case.
+But you also don't want to create a prompt that is too long, too detailed, or too small
+and doesn't have enough information, right?
+In this course, you saw us write several concise prompts.
+You can see over and over, we are hitting the center of this bull's eye.
+And that's what you're going to learn.
+We're going to continue hitting the center of the big three bulls eye.
+You've learned to run multi-file prompts and add and remove context so that you have
+just the right information to run your prompts.
+And then we made updates across several files, keeping your code relatively lean and modular
+by separating it out across files, right?
+Just like you would in a production code base.
+So this is where you start scaling your impact as an engineer, leveraging AI to automate
+repetitive tasks, freeing you up to focus on high level work.
+Remember, we're up leveling our focus.
+We're slowly moving away from the how to the what.
+It's not that the details aren't important.
+It's just that your AI coding assistant can and should take care of those details for
+you.
+And the next lesson, we're going to be building on these fundamentals even further.
+We're going to hone your AI coding ability to write high quality AI coding prompts that
+reduce hallucinations and errors to near zero.
+These patterns will also reduce the length of your prompts, allowing you to move even
+faster.
+Context, model, prompt.
+As you continue your AI coding journey throughout this course, remember, AI coding isn't just
+about writing high quality code faster than ever.
+It's about becoming a more effective engineer that ships features and gets the job done.
+AI coding is simply your new next generation tool to help you accomplish that goal.
+It's important to plan your work, write the tasks that need to be accomplished, and
+by writing them, you'll be taking the step to write a high quality, accurate AI coding
+prompt.
+It'll also make clear what context you need to write whatever feature you're working
+on.
+Now, you're leveraging the power of AI to automate, curate, and refine your development.
+In the next lesson, we'll expand your AI coding prompting abilities by condensing the amount
+of information you write in your AI coding prompts.
+With IDKs, I'll see you in the next lesson.
