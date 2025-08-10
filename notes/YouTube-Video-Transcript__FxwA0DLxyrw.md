@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: FxwA0DLxyrw
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=FxwA0DLxyrw
 - **Date**: 2025-08-10
-- **Duration**: 04:06
+- **Duration**: 21:25
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

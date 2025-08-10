@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: YAIJV48QlXc
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=YAIJV48QlXc
 - **Date**: 2025-08-10
-- **Duration**: 04:13
+- **Duration**: 32:26
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

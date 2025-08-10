@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: GUVrOa4V8iE
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=GUVrOa4V8iE
 - **Date**: 2025-08-10
-- **Duration**: 04:03
+- **Duration**: 33:03
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

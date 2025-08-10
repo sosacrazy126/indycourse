@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: 4SnvMieJiuw
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=4SnvMieJiuw
 - **Date**: 2025-08-10
-- **Duration**: 04:52
+- **Duration**: 19:08
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

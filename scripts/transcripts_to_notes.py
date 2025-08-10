@@ -11,8 +11,12 @@ TEMPLATE_PATH = WORKSPACE / "templates" / "transcript_note_template.md"
 
 META_PATTERNS = {
     "title": re.compile(r"^#\s+(.+)$", re.MULTILINE),
+    "meta_title": re.compile(r"^-\s+\*\*Title:\*\*\s*(.+)$", re.MULTILINE),
+    "author": re.compile(r"^-\s+\*\*Author:\*\*\s*(.+)$", re.MULTILINE),
     "source": re.compile(r"\*\*Source:\*\*\s*(.+)$", re.MULTILINE),
-    "video_url": re.compile(r"https?://\S+"),
+    "meta_duration": re.compile(r"^-\s+\*\*Duration:\*\*\s*([0-9]{1,2}:[0-9]{2})\b", re.MULTILINE),
+    "meta_video_url": re.compile(r"^-\s+\*\*Video URL:\*\*\s*(https?://\S+)", re.MULTILINE),
+    "any_url": re.compile(r"https?://\S+"),
 }
 
 
@@ -21,18 +25,24 @@ def load_template() -> str:
 
 
 def extract_metadata(content: str, fallback_name: str) -> dict:
-    title_match = META_PATTERNS["title"].search(content)
+    # Prefer explicit metadata if present, else fall back
+    title_match = META_PATTERNS["title"].search(content) or META_PATTERNS["meta_title"].search(content)
     title = title_match.group(1).strip() if title_match else fallback_name
 
     source_match = META_PATTERNS["source"].search(content)
-    source = source_match.group(1).strip() if source_match else fallback_name
+    source = source_match.group(1).strip() if source_match else title
 
-    url_match = META_PATTERNS["video_url"].search(content)
-    link = url_match.group(0) if url_match else ""
+    mvurl = META_PATTERNS["meta_video_url"].search(content)
+    anyurl = META_PATTERNS["any_url"].search(content)
+    link = (mvurl.group(1) if mvurl else (anyurl.group(0) if anyurl else ""))
 
-    # Duration heuristics (look for mm:ss near the top in minute headings)
-    minute_markers = re.findall(r"\[(\d{2}:\d{2})]", content[:5000])
-    duration = minute_markers[-1] if minute_markers else ""
+    # Duration heuristics: prefer explicit metadata, else parse minute markers
+    dmeta = META_PATTERNS["meta_duration"].search(content)
+    if dmeta:
+        duration = dmeta.group(1)
+    else:
+        minute_markers = re.findall(r"\[(\d{2}:\d{2})]", content[:10000])
+        duration = minute_markers[-1] if minute_markers else ""
 
     return {
         "title": title,
@@ -117,8 +127,11 @@ def discover_sources() -> list[Path]:
 
 
 def sanitize_filename(name: str) -> str:
+    # Normalize common YouTube/ID-like stems to keep meaningful IDs
+    name = name.replace(" ", "-")
     name = re.sub(r"[^A-Za-z0-9._-]+", "-", name.strip())
-    return re.sub(r"-+", "-", name).strip("-")
+    name = re.sub(r"-+", "-", name)
+    return name.strip("-")
 
 
 def main() -> None:

@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: VC6QCEXERpU
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=VC6QCEXERpU
 - **Date**: 2025-08-10
-- **Duration**: 03:57
+- **Duration**: 24:12
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

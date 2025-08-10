@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: dabeidyv5dg
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=dabeidyv5dg
 - **Date**: 2025-08-10
-- **Duration**: 04:16
+- **Duration**: 31:26
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

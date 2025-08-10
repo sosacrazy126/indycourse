@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: tElgVPUargw
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=tElgVPUargw
 - **Date**: 2025-08-10
-- **Duration**: 04:08
+- **Duration**: 34:12
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

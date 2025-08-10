@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: 090oR--s__8
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=090oR--s__8
 - **Date**: 2025-08-10
-- **Duration**: 05:50
+- **Duration**: 14:08
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

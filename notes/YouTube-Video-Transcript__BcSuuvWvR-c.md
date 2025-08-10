@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: BcSuuvWvR-c
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=BcSuuvWvR-c
 - **Date**: 2025-08-10
-- **Duration**: 04:15
+- **Duration**: 45:36
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 

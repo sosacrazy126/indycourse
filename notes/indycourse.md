@@ -1,6 +1,6 @@
 # indycourse
 
-- **Source**: README
+- **Source**: indycourse
 - **Link**: 
 - **Date**: 2025-08-10
 - **Duration**: 

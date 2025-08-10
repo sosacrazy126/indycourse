@@ -1,9 +1,9 @@
 # YouTube Video Transcript
 
-- **Source**: OwUm-4I22QI
+- **Source**: YouTube Video Transcript
 - **Link**: https://www.youtube.com/watch?v=OwUm-4I22QI
 - **Date**: 2025-08-10
-- **Duration**: 05:35
+- **Duration**: 37:56
 - **Author/Speaker**: 
 - **Tags**: transcript, notes
 
